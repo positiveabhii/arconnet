@@ -2,36 +2,29 @@ import React from 'react';
 
 export default function LeftNavigation({
   activeNavTab,
-  setActiveNavTab,
   isSidebarOpen,
   setIsSidebarOpen,
-  setActivePage,
   isAdmin = localStorage.getItem('auth_user') === 'admin',
 }) {
-  const handleStackClick = () => {
+  const handleStackClick = (event) => {
     if (activeNavTab === 'stack') {
+      event.preventDefault();
       setIsSidebarOpen(!isSidebarOpen);
-    } else {
-      setActiveNavTab('stack');
-      if (setActivePage) setActivePage('businessAssets');
-      setIsSidebarOpen(true);
     }
   };
 
-  const handleFileClick = () => {
+  const handleFileClick = (event) => {
     if (activeNavTab === 'file') {
+      event.preventDefault();
       setIsSidebarOpen(!isSidebarOpen);
-    } else {
-      setActiveNavTab('file');
-      if (setActivePage) setActivePage('windows');
-      setIsSidebarOpen(true);
     }
   };
 
   return (
     <nav className="left-nav-rail">
       {/* Top Stack Icon Button */}
-      <div
+      <a
+        href={isAdmin ? '/admin' : '/home'}
         className={`nav-item ${isSidebarOpen && activeNavTab === 'stack' ? 'active' : ''}`}
         title="Business Assets"
         onClick={handleStackClick}
@@ -41,10 +34,11 @@ export default function LeftNavigation({
           alt="Stack Icon"
           className="nav-custom-icon"
         />
-      </div>
+      </a>
 
       {!isAdmin && (
-        <div
+        <a
+          href="/windows"
           className={`nav-item ${isSidebarOpen && activeNavTab === 'file' ? 'active' : ''}`}
           title="Operating System"
           onClick={handleFileClick}
@@ -54,7 +48,7 @@ export default function LeftNavigation({
             alt="File Icon"
             className="nav-custom-icon"
           />
-        </div>
+        </a>
       )}
     </nav>
   );

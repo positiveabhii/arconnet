@@ -5,7 +5,6 @@ export default function SecondarySidebar({
   isSidebarOpen = true,
   activeNavTab = 'stack',
   activePage = 'businessAssets',
-  setActivePage,
   isAdmin = localStorage.getItem('auth_user') === 'admin',
 }) {
   const [isOsExpanded, setIsOsExpanded] = useState(true);
@@ -27,17 +26,18 @@ export default function SecondarySidebar({
   return (
     <aside className={`secondary-sidebar ${!isSidebarOpen ? 'collapsed' : ''}`}>
       {(isAdmin || activeNavTab === 'stack') ? (
-        <div
+        <a
+          href={isAdmin ? '/admin' : '/home'}
           className={`sidebar-item ${activePage === 'businessAssets' ? 'active' : ''}`}
-          onClick={() => setActivePage && setActivePage('businessAssets')}
         >
           <img src="/stack_open.svg" alt="My Apps" className="sidebar-custom-icon" />
           <span className="sidebar-label">My Apps</span>
-        </div>
+        </a>
       ) : (
         <div className="sidebar-menu-group">
           {/* Operating System Accordion Header */}
-          <div
+          <button
+            type="button"
             className="sidebar-item active sidebar-item-dropdown"
             onClick={() => setIsOsExpanded(!isOsExpanded)}
           >
@@ -47,35 +47,35 @@ export default function SecondarySidebar({
               size={14}
               className={`chevron-icon sidebar-chevron ${isOsExpanded ? 'expanded' : ''}`}
             />
-          </div>
+          </button>
 
           {/* Submenu Options when Expanded */}
           <div className={`sidebar-submenu-wrapper ${isOsExpanded ? 'expanded' : ''}`}>
             <div className="sidebar-submenu-list">
-              <div
+              <a
+                href="/windows"
                 className={`sidebar-submenu-item ${activePage === 'windows' ? 'active' : ''}`}
-                onClick={() => setActivePage && setActivePage('windows')}
               >
                 <span>Windows</span>
                 {activePage === 'windows' && <ArrowRight size={14} className="submenu-arrow" />}
-              </div>
-              <div
+              </a>
+              <a
+                href="/linux%20passwordbased"
                 className={`sidebar-submenu-item ${activePage === 'linux' ? 'active' : ''}`}
-                onClick={() => setActivePage && setActivePage('linux')}
               >
                 <span>Linux Passwordbased</span>
                 {activePage === 'linux' && <ArrowRight size={14} className="submenu-arrow" />}
-              </div>
+              </a>
             </div>
           </div>
                {hasFavorites && (
-            <div
+            <a
+              href="/faviourite"
               className={`sidebar-item ${activePage === 'favourite' ? 'active' : ''}`}
-              onClick={() => setActivePage && setActivePage('favourite')}
             >
               <Star size={16} className="sidebar-icon" />
               <span className="sidebar-label">Favourite</span>
-            </div>
+            </a>
           )}
           
         </div>

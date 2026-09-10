@@ -5,35 +5,30 @@ const logo = '/logo.svg';
 
 const profilerColumns = ['SR.No', 'Profile Name', 'Profile ...', 'Asset Type', 'Asset Sub...', 'Default Pr...', 'Profile ...', 'Profile Type', 'Profile Da...', 'Profile Ti...', 'S'];
 
-function AccessHeader({ setActivePage }) {
+function AccessHeader() {
   return (
     <header className="access-header">
-      <button className="access-brand" onClick={() => setActivePage('businessAssets')} aria-label="Return to Workspace"><img src={logo} alt="The United Bank logo" /></button>
+      <a className="access-brand" href="/admin" aria-label="Return to Workspace"><img src={logo} alt="The United Bank logo" /></a>
       <h1>Access Control</h1>
-      <div className="access-header-actions"><span>◷ &nbsp;Preferred Timezone : IST</span><MapPin size={14} /><span>SHARJAH</span><ChevronDown size={14} /><Grid3X3 size={18} /><button className="access-avatar" onClick={() => setActivePage('businessAssets')}>AD</button></div>
+      <div className="access-header-actions"><span>◷ &nbsp;Preferred Timezone : IST</span><MapPin size={14} /><span>SHARJAH</span><ChevronDown size={14} /><Grid3X3 size={18} /><a className="access-avatar" href="/admin">AD</a></div>
     </header>
   );
 }
 
-export default function AccessControlPage({ setActivePage, initialView = 'profiler' }) {
+export default function AccessControlPage({ initialView = 'profiler' }) {
   const [view, setView] = useState(initialView);
   const [roleOpen, setRoleOpen] = useState(false);
   const [role, setRole] = useState('');
   const [bulkOpen, setBulkOpen] = useState(false);
   const [search, setSearch] = useState('');
 
-  const changeView = (nextView) => {
-    setView(nextView);
-    setActivePage(nextView === 'assignment' ? 'accessAssignment' : 'accessProfiler');
-  };
-
   return (
     <div className="access-page">
-      <AccessHeader setActivePage={setActivePage} />
+      <AccessHeader />
       <div className="access-layout">
         <aside className="access-rail">
-          <button className={`access-rail-item ${view === 'profiler' ? 'active' : ''}`} onClick={() => changeView('profiler')}><span className="access-rail-icon">⌁</span><small>My Pr...</small></button>
-          <button className={`access-rail-item ${view === 'assignment' ? 'active' : ''}`} onClick={() => changeView('assignment')}><span className="access-rail-icon">⟳</span><small>Assig...</small></button>
+          <a className={`access-rail-item ${view === 'profiler' ? 'active' : ''}`} href="/admin/access-control/profiler"><span className="access-rail-icon">⌁</span><small>My Pr...</small></a>
+          <a className={`access-rail-item ${view === 'assignment' ? 'active' : ''}`} href="/admin/access-control/assignment"><span className="access-rail-icon">⟳</span><small>Assig...</small></a>
         </aside>
 
         <main className="access-content">

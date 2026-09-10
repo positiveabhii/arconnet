@@ -29,10 +29,10 @@ const routeToPage = (pathname) => {
     '/windows': 'windows',
     '/windows/terminal': 'windowsTerminal',
     '/linux passwordbased': 'linux',
-    '/admin/session monitoring/home': 'sessionMonitoring',
-    '/admin/session monitoring/rtsm': 'sessionMonitoringRtsm',
-    '/admin/access control/profiler': 'accessProfiler',
-    '/admin/access control/assignment': 'accessAssignment'
+    '/admin/session-monitoring/home': 'sessionMonitoring',
+    '/admin/session-monitoring/rtsm': 'sessionMonitoringRtsm',
+    '/admin/access-control/profiler': 'accessProfiler',
+    '/admin/access-control/assignment': 'accessAssignment'
   };
   return routes[route] || null;
 };
@@ -43,10 +43,10 @@ const pageToRoute = (page, isAdmin = false) => ({
   windows: '/windows',
   windowsTerminal: '/windows/terminal',
   linux: '/linux%20passwordbased',
-  sessionMonitoring: '/admin/session%20monitoring/home',
-  sessionMonitoringRtsm: '/admin/session%20monitoring/rtsm',
-  accessProfiler: '/admin/access%20control/profiler',
-  accessAssignment: '/admin/access%20control/assignment'
+  sessionMonitoring: '/admin/session-monitoring/home',
+  sessionMonitoringRtsm: '/admin/session-monitoring/rtsm',
+  accessProfiler: '/admin/access-control/profiler',
+  accessAssignment: '/admin/access-control/assignment'
 }[page] || '/home');
 
 const isKnownUser = (username) => username === 'admin' || username === 'Rohith';

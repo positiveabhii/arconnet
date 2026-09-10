@@ -443,6 +443,19 @@ body,
   transition: all 0.18s ease-in-out;
 }
 
+.nav-item,
+.sidebar-item,
+.sidebar-submenu-item,
+.launcher-tile,
+.access-brand,
+.access-avatar,
+.monitoring-brand,
+.monitoring-avatar,
+.monitoring-menu a,
+.monitoring-rail-item {
+  text-decoration: none;
+}
+
 .nav-item:hover,
 .nav-item.active {
   background-color: #dbeafe;
@@ -514,6 +527,13 @@ body,
   font-size: 13px;
   font-weight: 600;
   transition: all 0.15s ease;
+}
+
+button.sidebar-item {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
 }
 
 .sidebar-chevron {

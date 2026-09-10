@@ -8,11 +8,11 @@ const tableColumns = [['number', 'Sr ...'], ['status', 'Log Status Det...'], ['v
 const sessionPickerOptions = [['type', 'Session Taken By'], ['asset', 'Asset Name'], ['alias', 'Asset Alias Name'], ['ip', 'Asset IP'], ['host', 'Asset Host Name'], ['domain', 'Asset Domain Name'], ['instance', 'DB Instance Name'], ['category', 'Asset Category'], ['categoryType', 'Asset Type'], ['serviceUser', 'Digital Identity Username'], ['connectionType', 'Connection Type'], ['loggedIn', 'Session Logged In'], ['loggedOut', 'Session Logged Out'], ['logoutStatus', 'Logout Status']];
 const rtsmColumns = [['logDetails', 'Log Details'], ['sessionTakenBy', 'Session Taken By'], ['assetName', 'Asset Name'], ['assetAlias', 'Asset Alias Name'], ['assetIp', 'Asset IP'], ['identityUser', 'Digital Identity Use...'], ['sessionLoggedIn', 'Session Logged In'], ['sessionLoggedOut', 'Session Logged Out']];
 
-function MonitoringHeader({ setActivePage, onOpenMenu }) {
-  return <header className="monitoring-header"><button className="monitoring-brand" onClick={() => setActivePage('businessAssets')} aria-label="Return to Workspace"><img src={logo} alt="The United Bank logo" /></button><h1>Session Monitoring</h1><div className="monitoring-header-actions"><span className="monitoring-timezone">◷ &nbsp;Preferred Timezone : IST</span><button className="monitoring-icon-btn" onClick={onOpenMenu} aria-label="Open applications"><Grid3X3 size={18} /></button><button className="monitoring-avatar" onClick={() => setActivePage('businessAssets')} aria-label="Return to Workspace">AD</button></div></header>;
+function MonitoringHeader({ onOpenMenu }) {
+  return <header className="monitoring-header"><a className="monitoring-brand" href="/admin" aria-label="Return to Workspace"><img src={logo} alt="The United Bank logo" /></a><h1>Session Monitoring</h1><div className="monitoring-header-actions"><span className="monitoring-timezone">◷ &nbsp;Preferred Timezone : IST</span><button className="monitoring-icon-btn" onClick={onOpenMenu} aria-label="Open applications"><Grid3X3 size={18} /></button><a className="monitoring-avatar" href="/admin" aria-label="Return to Workspace">AD</a></div></header>;
 }
 
-export default function SessionMonitoringPage({ setActivePage, initialView = 'session' }) {
+export default function SessionMonitoringPage({ initialView = 'session' }) {
   const [activeRail, setActiveRail] = useState(initialView);
   const [searchOpen, setSearchOpen] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
@@ -31,10 +31,10 @@ export default function SessionMonitoringPage({ setActivePage, initialView = 'se
   };
 
   return <div className="monitoring-page">
-    <MonitoringHeader setActivePage={setActivePage} onOpenMenu={() => setMenuOpen(!menuOpen)} />
-    {menuOpen && <div className="monitoring-menu"><button onClick={() => setActivePage('businessAssets')}>Workspace</button></div>}
+    <MonitoringHeader onOpenMenu={() => setMenuOpen(!menuOpen)} />
+    {menuOpen && <div className="monitoring-menu"><a href="/admin">Workspace</a></div>}
     <div className="monitoring-layout">
-      <aside className="monitoring-rail"><button className={`monitoring-rail-item ${!isRtsm ? 'active' : ''}`} onClick={() => { setActiveRail('session'); setActivePage('sessionMonitoring'); }} aria-label="Session Monitoring"><img src="/v-log.svg" alt="" /><small>Session<br />Monitoring</small></button><button className={`monitoring-rail-item ${isRtsm ? 'active' : ''}`} onClick={() => { setActiveRail('rtsm'); setActivePage('sessionMonitoringRtsm'); }} aria-label="RTSM"><img src="/rtsm.svg" alt="" /><small>RTSM</small></button></aside>
+      <aside className="monitoring-rail"><a className={`monitoring-rail-item ${!isRtsm ? 'active' : ''}`} href="/admin/session-monitoring/home" aria-label="Session Monitoring"><img src="/v-log.svg" alt="" /><small>Session<br />Monitoring</small></a><a className={`monitoring-rail-item ${isRtsm ? 'active' : ''}`} href="/admin/session-monitoring/rtsm" aria-label="RTSM"><img src="/rtsm.svg" alt="" /><small>RTSM</small></a></aside>
       <main className="monitoring-content">
         <div className="monitoring-toolbar"><h2>{isRtsm ? 'Real Time Session Monitoring' : 'Session Monitoring Logs'}</h2><div className="monitoring-tools">{isRtsm && <><span className="rtsm-refresh-label">Auto refresh in 60 Seconds</span><button className={`rtsm-toggle ${autoRefresh ? 'on' : ''}`} onClick={() => setAutoRefresh(!autoRefresh)} aria-label="Toggle auto refresh"><span /></button></>}<button aria-label="Search" onClick={() => setSearchOpen(!searchOpen)}><Search size={17} /></button><button aria-label="Filter" onClick={() => setFilterOpen(true)}><Filter size={16} /><span>Filter</span></button><button aria-label="Download"><span>Download</span><Download size={16} /></button><button aria-label="Customize columns" onClick={() => setColumnOpen(!columnOpen)}><Plus size={19} /></button></div></div>
         {searchOpen && <div className="monitoring-filter-row"><label><Search size={14} /><input autoFocus placeholder="Search session logs" /></label><button onClick={() => setSearchOpen(false)} aria-label="Close search"><X size={15} /></button></div>}
