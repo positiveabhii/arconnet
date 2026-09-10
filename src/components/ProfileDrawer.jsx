@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { LogOut, X, Globe, ChevronDown, GraduationCap, Settings, Search } from 'lucide-react';
+import { clearDemoSession, getDemoRole } from '../auth';
 
 export default function ProfileDrawer({ onClose }) {
-  const isAdmin = localStorage.getItem('auth_user') === 'admin';
+  const isAdmin = getDemoRole() === 'admin';
   // Countdown timer starting from 30 minutes (1800 seconds) downwards to 0
   const INITIAL_SECONDS = 30 * 60;
   const [sessionSeconds, setSessionSeconds] = useState(INITIAL_SECONDS);
@@ -42,9 +43,7 @@ export default function ProfileDrawer({ onClose }) {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('auth_user');
-    localStorage.removeItem('demo_session');
-    document.cookie = 'demo_session=; Max-Age=0; Path=/; SameSite=Lax';
+    clearDemoSession();
   };
 
   return (

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Search, ChevronDown, Clock, MapPin, Mail, Bell, Grid, X, SlidersHorizontal } from 'lucide-react';
+import { getDemoRole } from '../auth';
 
 const logo = '/logo.svg';
 
-export default function TopHeader({ activeOverlay, setActiveOverlay, activePage = 'windows' }) {
-  const isAdmin = localStorage.getItem('auth_user') === 'admin';
+export default function TopHeader({ activeOverlay, setActiveOverlay, activePage = 'windows', isAdmin = getDemoRole() === 'admin' }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
@@ -55,25 +55,28 @@ export default function TopHeader({ activeOverlay, setActiveOverlay, activePage 
                 </div>
                 <div className="dropdown-menu-list">
                   <div className="dropdown-menu-group-title">All Section</div>
-                  <div
+                  <a
                     className={`dropdown-menu-item ${activePage === 'all' ? 'active' : ''}`}
+                    href={isAdmin ? '/admin' : '/home'}
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     All
-                  </div>
+                  </a>
                   <div className="dropdown-menu-group-title">Operating System</div>
-                  <div
+                  <a
                     className={`dropdown-menu-item ${activePage === 'windows' ? 'active' : ''}`}
+                    href="/windows"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Windows
-                  </div>
-                  <div
+                  </a>
+                  <a
                     className={`dropdown-menu-item ${activePage === 'linux' ? 'active' : ''}`}
+                    href="/linux-passwordbased"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Linux PasswordBased
-                  </div>
+                  </a>
                 </div>
               </div>
             )}

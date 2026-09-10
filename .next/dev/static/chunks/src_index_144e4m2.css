@@ -423,6 +423,10 @@ html, body, #root {
   display: flex;
 }
 
+.nav-item, .sidebar-item, .sidebar-submenu-item, .launcher-tile, .access-brand, .access-avatar, .monitoring-brand, .monitoring-avatar, .monitoring-menu a, .monitoring-rail-item {
+  text-decoration: none;
+}
+
 .nav-item:hover, .nav-item.active {
   background-color: #dbeafe;
   border-left: 3px solid #2563eb;
@@ -491,6 +495,13 @@ html, body, #root {
   font-weight: 600;
   transition: all .15s;
   display: flex;
+}
+
+button.sidebar-item {
+  text-align: left;
+  background: none;
+  border: 0;
+  width: 100%;
 }
 
 .sidebar-chevron {

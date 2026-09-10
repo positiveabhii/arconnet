@@ -72,6 +72,18 @@
       "namedRegex": "^/admin/session\\-monitoring/rtsm(?:/)?$"
     },
     {
+      "page": "/home",
+      "regex": "^/home(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/home(?:/)?$"
+    },
+    {
+      "page": "/linux-passwordbased",
+      "regex": "^/linux\\-passwordbased(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/linux\\-passwordbased(?:/)?$"
+    },
+    {
       "page": "/login",
       "regex": "^/login(?:/)?$",
       "routeKeys": {},
@@ -106,6 +118,12 @@
       "regex": "^/user/windows/terminal(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/user/windows/terminal(?:/)?$"
+    },
+    {
+      "page": "/windows",
+      "regex": "^/windows(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/windows(?:/)?$"
     }
   ],
   "dataRoutes": [],

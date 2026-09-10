@@ -20,10 +20,16 @@ export default function LinuxAssetsPage({ onOpenDetails, isFavouriteView = false
   const [isAssetExpanded, setIsAssetExpanded] = useState(true);
   
   const [isPinned, setIsPinned] = useState(() => {
+    if (typeof window === 'undefined') {
+      return false;
+    }
     return localStorage.getItem('is_pinned') === 'true';
   });
   
   const [favoriteItems, setFavoriteItems] = useState(() => {
+    if (typeof window === 'undefined') {
+      return {};
+    }
     return JSON.parse(localStorage.getItem('favorite_items') || '{}');
   });
   
@@ -34,6 +40,9 @@ export default function LinuxAssetsPage({ onOpenDetails, isFavouriteView = false
   const connectMenuRef = useRef(null);
 
   const [hasRohithCredentials, setHasRohithCredentials] = useState(() => {
+    if (typeof window === 'undefined') {
+      return false;
+    }
     return localStorage.getItem('rohith_credentials') === 'true';
   });
   const [isConnectOpen2, setIsConnectOpen2] = useState(false);

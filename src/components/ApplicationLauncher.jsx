@@ -1,6 +1,7 @@
 import React from 'react';
+import { getDemoRole } from '../auth';
 
-export default function ApplicationLauncher({ isAdmin = localStorage.getItem('auth_user') === 'admin' }) {
+export default function ApplicationLauncher({ isAdmin = getDemoRole() === 'admin' }) {
 
   const adminApps = [
     { name: 'Discovery', imgSrc: '/discovery.svg' },

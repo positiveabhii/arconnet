@@ -15,12 +15,16 @@ import StateSwitcherBar from './components/StateSwitcherBar';
 import LoginPage from './components/LoginPage';
 import SessionMonitoringPage from './components/SessionMonitoringPage';
 import AccessControlPage from './components/AccessControlPage';
+import { getDemoRole, setDemoSession } from './auth';
 
 const routeToPage = (pathname) => {
   const route = decodeURIComponent(pathname).replace(/\/$/, '') || '/';
   const routes = {
     '/': 'login',
     '/login': 'login',
+    '/home': 'businessAssets',
+    '/windows': 'windows',
+    '/linux-passwordbased': 'linux',
     '/admin': 'businessAssets',
     '/user': 'businessAssets',
     '/user/faviourite': 'favourite',
@@ -35,25 +39,15 @@ const routeToPage = (pathname) => {
   return routes[route] || null;
 };
 
-const isKnownUser = (username) => username === 'admin' || username === 'Rohith';
-
-const createDemoSession = (username) => {
-  const sessionId = crypto.randomUUID();
-  const expiresAt = Date.now() + 30 * 60 * 1000;
-  document.cookie = `demo_session=${sessionId}; Max-Age=1800; Path=/; SameSite=Lax`;
-  localStorage.setItem('demo_session', JSON.stringify({ sessionId, username, expiresAt }));
-};
-
-export default function App() {
-  const storedUser = localStorage.getItem('auth_user');
-  const isAdmin = storedUser === 'admin';
+export default function App({ initialRole = null, initialPath = '/' }) {
+  const role = getDemoRole() || initialRole;
+  const isAdmin = role === 'admin';
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    return isKnownUser(localStorage.getItem('auth_user'));
+    return Boolean(getDemoRole() || initialRole);
   });
 
   const handleLogin = (username) => {
-    localStorage.setItem('auth_user', username);
-    createDemoSession(username);
+    setDemoSession(username);
     setIsAuthenticated(true);
   };
 
@@ -69,36 +63,37 @@ export default function App() {
 
   // activeNavTab: 'stack' | 'file'
   const [activeNavTab, setActiveNavTab] = useState(() => {
-    const routedPage = routeToPage(window.location.pathname);
+    const routedPage = routeToPage(typeof window === 'undefined' ? initialPath : window.location.pathname);
     return routedPage && ['windows', 'linux', 'favourite'].includes(routedPage) ? 'file' : 'stack';
   });
 
   // activePage: 'windows' | 'businessAssets' | 'linux'
   const [activePage, setActivePage] = useState(() => {
-    const routedPage = routeToPage(window.location.pathname);
+    const routedPage = routeToPage(typeof window === 'undefined' ? initialPath : window.location.pathname);
     if (routedPage === 'login') {
       return 'login';
     }
-    if (routedPage && routedPage !== 'login' && (isAdmin || (!routedPage.startsWith('sessionMonitoring') && !routedPage.startsWith('access') && routedPage !== 'businessAssets'))) {
+    if (routedPage && routedPage !== 'login') {
       return routedPage;
     }
-    return localStorage.getItem('auth_user') === 'admin' ? 'businessAssets' : 'windows';
+    return getDemoRole() === 'admin' ? 'businessAssets' : 'windows';
   });
 
   useEffect(() => {
     const handleRouteChange = () => {
       const routedPage = routeToPage(window.location.pathname);
-      const currentUser = localStorage.getItem('auth_user');
-      const isCurrentUserAdmin = currentUser === 'admin';
+      const currentRole = getDemoRole();
+      const isCurrentUserAdmin = currentRole === 'admin';
       const isAdminRoute = decodeURIComponent(window.location.pathname).startsWith('/admin');
-      const isUserRoute = decodeURIComponent(window.location.pathname).startsWith('/user');
+      const currentPath = decodeURIComponent(window.location.pathname);
+      const isUserRoute = currentPath.startsWith('/user') || ['/home', '/windows', '/linux-passwordbased'].includes(currentPath);
 
       if (routedPage === 'login') {
         setActivePage('login');
         return;
       }
 
-      if (!isKnownUser(currentUser) || (isAdminRoute && !isCurrentUserAdmin) || (isUserRoute && isCurrentUserAdmin)) {
+      if (!currentRole || (isAdminRoute && !isCurrentUserAdmin) || (isUserRoute && isCurrentUserAdmin)) {
         setActivePage('login');
         setIsAuthenticated(false);
         return;
@@ -126,7 +121,7 @@ export default function App() {
     setActiveOverlay('details');
   };
 
-  if (activePage === 'login' || (!isAuthenticated && window.location.pathname === '/login')) {
+  if (activePage === 'login' || !isAuthenticated) {
     return <LoginPage onLogin={handleLogin} />;
   }
 
@@ -149,6 +144,7 @@ export default function App() {
         activeOverlay={activeOverlay}
         setActiveOverlay={setActiveOverlay}
         activePage={activePage}
+        isAdmin={isAdmin}
       />
 
       {/* Launcher Popup */}

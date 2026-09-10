@@ -1,10 +1,11 @@
 import React from 'react';
+import { getDemoRole } from '../auth';
 
 export default function LeftNavigation({
   activeNavTab,
   isSidebarOpen,
   setIsSidebarOpen,
-  isAdmin = localStorage.getItem('auth_user') === 'admin',
+  isAdmin = getDemoRole() === 'admin',
 }) {
   const handleStackClick = (event) => {
     if (activeNavTab === 'stack') {
@@ -24,7 +25,7 @@ export default function LeftNavigation({
     <nav className="left-nav-rail">
       {/* Top Stack Icon Button */}
       <a
-        href={isAdmin ? '/admin' : '/user'}
+        href={isAdmin ? '/admin' : '/home'}
         className={`nav-item ${isSidebarOpen && activeNavTab === 'stack' ? 'active' : ''}`}
         title="Business Assets"
         onClick={handleStackClick}
@@ -38,7 +39,7 @@ export default function LeftNavigation({
 
       {!isAdmin && (
         <a
-          href="/user/windows"
+          href="/windows"
           className={`nav-item ${isSidebarOpen && activeNavTab === 'file' ? 'active' : ''}`}
           title="Operating System"
           onClick={handleFileClick}

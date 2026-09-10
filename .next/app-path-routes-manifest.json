@@ -6,11 +6,14 @@
   "/admin/page": "/admin",
   "/admin/session-monitoring/home/page": "/admin/session-monitoring/home",
   "/admin/session-monitoring/rtsm/page": "/admin/session-monitoring/rtsm",
+  "/home/page": "/home",
+  "/linux-passwordbased/page": "/linux-passwordbased",
   "/login/page": "/login",
   "/page": "/",
   "/user/faviourite/page": "/user/faviourite",
   "/user/linux-passwordbased/page": "/user/linux-passwordbased",
   "/user/page": "/user",
   "/user/windows/page": "/user/windows",
-  "/user/windows/terminal/page": "/user/windows/terminal"
+  "/user/windows/terminal/page": "/user/windows/terminal",
+  "/windows/page": "/windows"
 }

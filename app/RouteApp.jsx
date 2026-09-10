@@ -1,9 +1,10 @@
-'use client';
+import { cookies } from 'next/headers';
+import App from '../src/App.jsx';
 
-import dynamic from 'next/dynamic';
+export default async function RouteApp({ initialPath = '/' }) {
+  const cookieStore = await cookies();
+  const role = cookieStore.get('arcon_demo_session')?.value;
+  const initialRole = role === 'user' || role === 'admin' ? role : null;
 
-const App = dynamic(() => import('../src/App.jsx'), { ssr: false });
-
-export default function RouteApp() {
-  return <App />;
+  return <App initialRole={initialRole} initialPath={initialPath} />;
 }

@@ -1,0 +1,56 @@
+{
+  "sorted_middleware": [],
+  "middleware": {
+    "/": {
+      "files": [
+        "server/edge/chunks/node_modules_next_dist_esm_build_templates_edge-wrapper_1nw6_jx.js",
+        "server/edge/chunks/[root-of-the-server]__0pco7a6._.js",
+        "server/edge/chunks/turbopack-node_modules_next_dist_esm_build_templates_edge-wrapper_0n2dz80.js"
+      ],
+      "name": "middleware",
+      "page": "/",
+      "entrypoint": "server/edge/chunks/turbopack-node_modules_next_dist_esm_build_templates_edge-wrapper_0n2dz80.js",
+      "matchers": [
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/(/?index|/?index\\.json|/?index(?:\\.rsc|\\.segments/.+\\.segment\\.rsc))?",
+          "originalSource": "/"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/login{(\\.json|\\.rsc|\\.segments/.+\\.segment\\.rsc)}?",
+          "originalSource": "/login"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/admin/:path*{(\\.json|\\.rsc|\\.segments/.+\\.segment\\.rsc)}?",
+          "originalSource": "/admin/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/home{(\\.json|\\.rsc|\\.segments/.+\\.segment\\.rsc)}?",
+          "originalSource": "/home"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/windows{(\\.json|\\.rsc|\\.segments/.+\\.segment\\.rsc)}?",
+          "originalSource": "/windows"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/linux-passwordbased{(\\.json|\\.rsc|\\.segments/.+\\.segment\\.rsc)}?",
+          "originalSource": "/linux-passwordbased"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/user/:path*{(\\.json|\\.rsc|\\.segments/.+\\.segment\\.rsc)}?",
+          "originalSource": "/user/:path*"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "rhI-amO4Ba5X1ejbzkf4_",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "JOIiaHv9kzCX53kGYCV6CnWB/VtERf7f8l1/znuFZ5w=",
+        "__NEXT_PREVIEW_MODE_ID": "e1a6aeb368a32b3a67c498995563439c",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "175d7347cfa7d43a8e461db49b86ccb12d9db1d76ece27472ff72f7eecb50c50",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "1ce869a269c56203f7398081acebaec0b450349b16189bd6f15dbc9a4fae3ee8"
+      }
+    }
+  },
+  "instrumentation": null,
+  "functions": {}
+}

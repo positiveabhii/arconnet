@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Monitor, ChevronDown, ArrowRight, Star } from 'lucide-react';
+import { getDemoRole } from '../auth';
 
 export default function SecondarySidebar({
   isSidebarOpen = true,
   activeNavTab = 'stack',
   activePage = 'businessAssets',
-  isAdmin = localStorage.getItem('auth_user') === 'admin',
+  isAdmin = getDemoRole() === 'admin',
 }) {
   const [isOsExpanded, setIsOsExpanded] = useState(true);
 
   const [hasFavorites, setHasFavorites] = useState(() => {
+    if (typeof window === 'undefined') {
+      return false;
+    }
     const favs = JSON.parse(localStorage.getItem('favorite_items') || '{}');
     return Object.values(favs).some(val => val === true);
   });
@@ -27,7 +31,7 @@ export default function SecondarySidebar({
     <aside className={`secondary-sidebar ${!isSidebarOpen ? 'collapsed' : ''}`}>
       {(isAdmin || activeNavTab === 'stack') ? (
         <a
-          href={isAdmin ? '/admin' : '/user'}
+          href={isAdmin ? '/admin' : '/home'}
           className={`sidebar-item ${activePage === 'businessAssets' ? 'active' : ''}`}
         >
           <img src="/stack_open.svg" alt="My Apps" className="sidebar-custom-icon" />
@@ -53,14 +57,14 @@ export default function SecondarySidebar({
           <div className={`sidebar-submenu-wrapper ${isOsExpanded ? 'expanded' : ''}`}>
             <div className="sidebar-submenu-list">
               <a
-                href="/user/windows"
+                href="/windows"
                 className={`sidebar-submenu-item ${activePage === 'windows' ? 'active' : ''}`}
               >
                 <span>Windows</span>
                 {activePage === 'windows' && <ArrowRight size={14} className="submenu-arrow" />}
               </a>
               <a
-                href="/user/linux-passwordbased"
+                href="/linux-passwordbased"
                 className={`sidebar-submenu-item ${activePage === 'linux' ? 'active' : ''}`}
               >
                 <span>Linux Passwordbased</span>

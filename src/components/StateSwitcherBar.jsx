@@ -50,14 +50,14 @@ export default function StateSwitcherBar({
       <span className="switcher-label">View Screenshot States:</span>
       <a
         className={`switcher-btn ${activePage === 'windows' ? 'active' : ''}`}
-        href="/user/windows"
+        href="/windows"
         onClick={() => selectState(6)}
       >
         ★ Windows Page
       </a>
       <a
         className={`switcher-btn ${activeOverlay === null && !isExpanded && activePage === 'businessAssets' ? 'active' : ''}`}
-        href={isAdmin ? '/admin' : '/user'}
+        href={isAdmin ? '/admin' : '/home'}
         onClick={() => selectState(3)}
       >
         Default Page (Img 3)
@@ -76,7 +76,7 @@ export default function StateSwitcherBar({
       </button>
       <a
         className={`switcher-btn ${activeOverlay === null && isExpanded && activePage === 'businessAssets' ? 'active' : ''}`}
-        href={isAdmin ? '/admin' : '/user'}
+        href={isAdmin ? '/admin' : '/home'}
         onClick={() => selectState(4)}
       >
         Empty State (Img 4)

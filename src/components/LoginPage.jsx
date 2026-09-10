@@ -51,10 +51,9 @@ export default function LoginPage({ onLogin }) {
       return undefined;
     }
 
-    const redirectPath = username === 'admin' ? '/admin' : '/user/windows';
     const timer = setTimeout(() => {
       onLogin(username);
-      window.location.href = redirectPath;
+      window.location.href = username === 'admin' ? '/admin' : '/home';
     }, 2000);
 
     return () => clearTimeout(timer);

@@ -6,11 +6,14 @@
   "/admin/page": "app/admin/page.js",
   "/admin/session-monitoring/home/page": "app/admin/session-monitoring/home/page.js",
   "/admin/session-monitoring/rtsm/page": "app/admin/session-monitoring/rtsm/page.js",
+  "/home/page": "app/home/page.js",
+  "/linux-passwordbased/page": "app/linux-passwordbased/page.js",
   "/login/page": "app/login/page.js",
   "/page": "app/page.js",
   "/user/faviourite/page": "app/user/faviourite/page.js",
   "/user/linux-passwordbased/page": "app/user/linux-passwordbased/page.js",
   "/user/page": "app/user/page.js",
   "/user/windows/page": "app/user/windows/page.js",
-  "/user/windows/terminal/page": "app/user/windows/terminal/page.js"
+  "/user/windows/terminal/page": "app/user/windows/terminal/page.js",
+  "/windows/page": "app/windows/page.js"
 }
