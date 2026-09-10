@@ -51,6 +51,13 @@ const pageToRoute = (page, isAdmin = false) => ({
 
 const isKnownUser = (username) => username === 'admin' || username === 'Rohith';
 
+const createDemoSession = (username) => {
+  const sessionId = crypto.randomUUID();
+  const expiresAt = Date.now() + 30 * 60 * 1000;
+  document.cookie = `demo_session=${sessionId}; Max-Age=1800; Path=/; SameSite=Lax`;
+  localStorage.setItem('demo_session', JSON.stringify({ sessionId, username, expiresAt }));
+};
+
 export default function App() {
   const storedUser = localStorage.getItem('auth_user');
   const isAdmin = storedUser === 'admin' || decodeURIComponent(window.location.pathname).startsWith('/admin');
@@ -60,6 +67,7 @@ export default function App() {
 
   const handleLogin = (username) => {
     localStorage.setItem('auth_user', username);
+    createDemoSession(username);
     setIsAuthenticated(true);
     setActivePage('businessAssets');
     setActiveNavTab('stack');

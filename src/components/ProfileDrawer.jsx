@@ -43,6 +43,8 @@ export default function ProfileDrawer({ onClose }) {
 
   const handleLogout = () => {
     localStorage.removeItem('auth_user');
+    localStorage.removeItem('demo_session');
+    document.cookie = 'demo_session=; Max-Age=0; Path=/; SameSite=Lax';
     window.history.replaceState({}, '', '/login');
     window.location.reload();
   };
