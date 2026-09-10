@@ -45,8 +45,6 @@ export default function ProfileDrawer({ onClose }) {
     localStorage.removeItem('auth_user');
     localStorage.removeItem('demo_session');
     document.cookie = 'demo_session=; Max-Age=0; Path=/; SameSite=Lax';
-    window.history.replaceState({}, '', '/login');
-    window.location.reload();
   };
 
   return (
@@ -55,10 +53,10 @@ export default function ProfileDrawer({ onClose }) {
         {/* Drawer Header Area with Light Lavender Tint */}
         <div className="profile-drawer-header">
           <div className="profile-header-top">
-            <button className="logout-btn" onClick={handleLogout}>
+            <a className="logout-btn" href="/login" onClick={handleLogout}>
               <LogOut size={16} />
               <span>Logout</span>
-            </button>
+            </a>
             <button className="close-btn" onClick={onClose} aria-label="Close">
               <X size={18} />
             </button>

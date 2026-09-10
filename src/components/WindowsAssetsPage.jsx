@@ -15,7 +15,7 @@ import {
   X
 } from 'lucide-react';
 
-export default function WindowsAssetsPage({ onOpenDetails, isFavouriteView = false, showHeader = true, isWrapper = true, setActivePage }) {
+export default function WindowsAssetsPage({ onOpenDetails, isFavouriteView = false, showHeader = true, isWrapper = true }) {
   const [activeTab, setActiveTab] = useState('all');
   const [isAssetExpanded, setIsAssetExpanded] = useState(true);
   
@@ -32,18 +32,6 @@ export default function WindowsAssetsPage({ onOpenDetails, isFavouriteView = fal
   const [isConnectOpen, setIsConnectOpen] = useState(false);
   const [isRdpOpen, setIsRdpOpen] = useState(false);
   const connectMenuRef = useRef(null);
-
-  const [isConnecting, setIsConnecting] = useState(false);
-
-  const handleConnectTerminal = () => {
-    setIsConnectOpen(false);
-    setIsRdpOpen(false);
-    setIsConnecting(true);
-    setTimeout(() => {
-      setIsConnecting(false);
-      if (setActivePage) setActivePage('windowsTerminal');
-    }, 2000);
-  };
 
   const [hasRohithCredentials, setHasRohithCredentials] = useState(() => {
     return localStorage.getItem('rohith_credentials') === 'true';
@@ -132,13 +120,6 @@ export default function WindowsAssetsPage({ onOpenDetails, isFavouriteView = fal
 
   return (
     <Container {...containerProps}>
-      {isConnecting && (
-        <div className="connector-loader-overlay">
-          <div className="connector-loader-title">We're setting up connector workspace</div>
-          <div className="connector-spinner"></div>
-        </div>
-      )}
-
       {/* Toasts */}
       <div className="toast-container">
         {toasts.map(toast => (
@@ -291,13 +272,13 @@ export default function WindowsAssetsPage({ onOpenDetails, isFavouriteView = fal
                           </button>
                           {isRdpOpen && (
                             <div className="connect-submenu" role="menu">
-                              <button
+                              <a
                                 className="connect-menu-item rdp-option"
-                                onClick={handleConnectTerminal}
+                                href="/user/windows/terminal"
                               >
                                 <Terminal size={14} />
                                 <span>Terminal</span>
-                              </button>
+                              </a>
                             </div>
                           )}
                         </div>
@@ -369,16 +350,13 @@ export default function WindowsAssetsPage({ onOpenDetails, isFavouriteView = fal
                             </button>
                             {isRdpOpen2 && (
                               <div className="connect-submenu" role="menu">
-                                <button
+                                <a
                                   className="connect-menu-item rdp-option"
-                                  onClick={() => {
-                                    setIsConnectOpen2(false);
-                                    setIsRdpOpen2(false);
-                                  }}
+                                  href="/user/windows/terminal"
                                 >
                                   <Terminal size={14} />
                                   <span>Terminal</span>
-                                </button>
+                                </a>
                               </div>
                             )}
                           </div>

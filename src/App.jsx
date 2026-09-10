@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import TopHeader from './components/TopHeader';
 import LeftNavigation from './components/LeftNavigation';
 import SecondarySidebar from './components/SecondarySidebar';
@@ -35,18 +35,6 @@ const routeToPage = (pathname) => {
   return routes[route] || null;
 };
 
-const pageToRoute = (page, isAdmin = false) => ({
-  businessAssets: isAdmin ? '/admin' : '/user',
-  favourite: '/user/faviourite',
-  windows: '/user/windows',
-  windowsTerminal: '/user/windows/terminal',
-  linux: '/user/linux-passwordbased',
-  sessionMonitoring: '/admin/session-monitoring/home',
-  sessionMonitoringRtsm: '/admin/session-monitoring/rtsm',
-  accessProfiler: '/admin/access-control/profiler',
-  accessAssignment: '/admin/access-control/assignment'
-}[page] || '/user');
-
 const isKnownUser = (username) => username === 'admin' || username === 'Rohith';
 
 const createDemoSession = (username) => {
@@ -67,10 +55,6 @@ export default function App() {
     localStorage.setItem('auth_user', username);
     createDemoSession(username);
     setIsAuthenticated(true);
-    const nextPage = username === 'admin' ? 'businessAssets' : 'windows';
-    setActivePage(nextPage);
-    setActiveNavTab(username === 'admin' ? 'stack' : 'file');
-    window.history.pushState({}, '', username === 'admin' ? '/admin' : '/user/windows');
   };
 
   // activeOverlay: null | 'launcher' | 'profile' | 'notifications'
@@ -101,14 +85,6 @@ export default function App() {
     return localStorage.getItem('auth_user') === 'admin' ? 'businessAssets' : 'windows';
   });
 
-  const navigateToPage = useCallback((page) => {
-    setActivePage(page);
-    const nextRoute = pageToRoute(page, isAdmin);
-    if (window.location.pathname !== nextRoute) {
-      window.history.pushState({}, '', nextRoute);
-    }
-  }, [isAdmin, setActivePage]);
-
   useEffect(() => {
     const handleRouteChange = () => {
       const routedPage = routeToPage(window.location.pathname);
@@ -123,14 +99,13 @@ export default function App() {
       }
 
       if (!isKnownUser(currentUser) || (isAdminRoute && !isCurrentUserAdmin) || (isUserRoute && isCurrentUserAdmin)) {
-        window.history.replaceState({}, '', '/login');
         setActivePage('login');
         setIsAuthenticated(false);
         return;
       }
 
       if (!routedPage) {
-        navigateToPage(isCurrentUserAdmin ? 'businessAssets' : 'windows');
+        setActivePage(isCurrentUserAdmin ? 'businessAssets' : 'windows');
         return;
       }
 
@@ -140,7 +115,7 @@ export default function App() {
     window.addEventListener('popstate', handleRouteChange);
     handleRouteChange();
     return () => window.removeEventListener('popstate', handleRouteChange);
-  }, [navigateToPage]);
+  }, []);
 
   const handleCloseOverlay = () => {
     setActiveOverlay(null);
@@ -160,11 +135,11 @@ export default function App() {
   }
 
   if (activePage === 'sessionMonitoring' || activePage === 'sessionMonitoringRtsm') {
-    return <SessionMonitoringPage setActivePage={navigateToPage} initialView={activePage === 'sessionMonitoringRtsm' ? 'rtsm' : 'session'} />;
+    return <SessionMonitoringPage initialView={activePage === 'sessionMonitoringRtsm' ? 'rtsm' : 'session'} />;
   }
 
   if (activePage === 'accessProfiler' || activePage === 'accessAssignment') {
-    return <AccessControlPage setActivePage={navigateToPage} initialView={activePage === 'accessAssignment' ? 'assignment' : 'profiler'} />;
+    return <AccessControlPage initialView={activePage === 'accessAssignment' ? 'assignment' : 'profiler'} />;
   }
 
   return (
@@ -178,7 +153,7 @@ export default function App() {
 
       {/* Launcher Popup */}
       {activeOverlay === 'launcher' && (
-        <ApplicationLauncher onClose={handleCloseOverlay} setActivePage={navigateToPage} isAdmin={isAdmin} />
+        <ApplicationLauncher onClose={handleCloseOverlay} isAdmin={isAdmin} />
       )}
 
       {/* Main Body Shell (Left Rail + Secondary Sidebar + Main Content) */}
@@ -188,7 +163,6 @@ export default function App() {
           setActiveNavTab={setActiveNavTab}
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
-          setActivePage={navigateToPage}
           isAdmin={isAdmin}
         />
         <SecondarySidebar
@@ -196,14 +170,12 @@ export default function App() {
           activeNavTab={activeNavTab}
           activePage={activePage}
           onOpenDetails={handleOpenDetails}
-          setActivePage={navigateToPage}
           isAdmin={isAdmin}
         />
         <MainContent
           isExpanded={isExpanded}
           setIsExpanded={setIsExpanded}
           activePage={activePage}
-          setActivePage={navigateToPage}
           onOpenDetails={handleOpenDetails}
         />
       </div>

@@ -46,15 +46,6 @@ export default function LoginPage({ onLogin }) {
     }
   };
 
-  useEffect(() => {
-    if (step === 3) {
-      const timer = setTimeout(() => {
-        onLogin(username);
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [step, onLogin, username]);
-
   return (
     <div className="login-page-wrapper">
       {step === 3 ? (
@@ -67,7 +58,13 @@ export default function LoginPage({ onLogin }) {
           </div>
           <h2>We're working on your request now.</h2>
           <p>It won't take long, and we appreciate you waiting.</p>
-          <a href="#" className="loading-link">Thank you for your patience.</a>
+          <a
+            href={username === 'admin' ? '/admin' : '/user/windows'}
+            className="loading-link"
+            onClick={() => onLogin(username)}
+          >
+            Continue to Workspace
+          </a>
           <div className="loading-spinner"></div>
         </div>
       ) : (
@@ -175,7 +172,7 @@ export default function LoginPage({ onLogin }) {
                   <button type="submit" className="login-primary-btn">Login</button>
                 </div>
                 
-                <a href="#" className="forgot-password-link">Forgot Password</a>
+                <a href="/login" className="forgot-password-link">Forgot Password</a>
               </form>
             </div>
           )}

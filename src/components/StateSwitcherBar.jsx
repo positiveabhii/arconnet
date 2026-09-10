@@ -8,8 +8,8 @@ export default function StateSwitcherBar({
   isSidebarOpen,
   setIsSidebarOpen,
   activePage,
-  setActivePage,
   setActiveNavTab,
+  isAdmin = false,
 }) {
   const selectState = (stateNum) => {
     switch (stateNum) {
@@ -24,13 +24,11 @@ export default function StateSwitcherBar({
       case 3: // Image 3: Default Business Assets (Clean main page)
         setActiveOverlay(null);
         setIsExpanded(false);
-        if (setActivePage) setActivePage('businessAssets');
         if (setActiveNavTab) setActiveNavTab('stack');
         break;
       case 4: // Image 4: Empty Business Assets State (Expanded with illustration)
         setActiveOverlay(null);
         setIsExpanded(true);
-        if (setActivePage) setActivePage('businessAssets');
         if (setActiveNavTab) setActiveNavTab('stack');
         break;
       case 5: // Image 5: User Profile drawer open
@@ -40,7 +38,6 @@ export default function StateSwitcherBar({
       case 6: // New Image: Windows Assets Page
         setActiveOverlay(null);
         setIsExpanded(false);
-        if (setActivePage) setActivePage('windows');
         if (setActiveNavTab) setActiveNavTab('file');
         break;
       default:
@@ -51,18 +48,20 @@ export default function StateSwitcherBar({
   return (
     <div className="state-switcher-bar" title="Quick Switch Visual States">
       <span className="switcher-label">View Screenshot States:</span>
-      <button
+      <a
         className={`switcher-btn ${activePage === 'windows' ? 'active' : ''}`}
+        href="/user/windows"
         onClick={() => selectState(6)}
       >
         ★ Windows Page
-      </button>
-      <button
+      </a>
+      <a
         className={`switcher-btn ${activeOverlay === null && !isExpanded && activePage === 'businessAssets' ? 'active' : ''}`}
+        href={isAdmin ? '/admin' : '/user'}
         onClick={() => selectState(3)}
       >
         Default Page (Img 3)
-      </button>
+      </a>
       <button
         className={`switcher-btn ${activeOverlay === 'launcher' ? 'active' : ''}`}
         onClick={() => selectState(1)}
@@ -75,12 +74,13 @@ export default function StateSwitcherBar({
       >
         Notifications (Img 2)
       </button>
-      <button
+      <a
         className={`switcher-btn ${activeOverlay === null && isExpanded && activePage === 'businessAssets' ? 'active' : ''}`}
+        href={isAdmin ? '/admin' : '/user'}
         onClick={() => selectState(4)}
       >
         Empty State (Img 4)
-      </button>
+      </a>
       <button
         className={`switcher-btn ${activeOverlay === 'profile' ? 'active' : ''}`}
         onClick={() => selectState(5)}

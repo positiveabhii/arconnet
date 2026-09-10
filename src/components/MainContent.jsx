@@ -5,7 +5,7 @@ import WindowsAssetsPage from './WindowsAssetsPage';
 import LinuxAssetsPage from './LinuxAssetsPage';
 import WindowsTerminalPage from './WindowsTerminalPage';
 
-export default function MainContent({ isExpanded, setIsExpanded, activePage = 'businessAssets', setActivePage, onOpenDetails }) {
+export default function MainContent({ isExpanded, setIsExpanded, activePage = 'businessAssets', onOpenDetails }) {
   const [isPerPageOpen, setIsPerPageOpen] = useState(false);
   const [itemsPerPage, setItemsPerPage] = useState(10);
 
@@ -13,8 +13,8 @@ export default function MainContent({ isExpanded, setIsExpanded, activePage = 'b
     return (
       <main className="main-content-area">
         <div className="windows-assets-container favourite-page-container">
-          <WindowsAssetsPage onOpenDetails={onOpenDetails} isFavouriteView={true} showHeader={true} isWrapper={true} setActivePage={setActivePage} />
-          <LinuxAssetsPage onOpenDetails={onOpenDetails} isFavouriteView={true} showHeader={false} isWrapper={true} setActivePage={setActivePage} />
+          <WindowsAssetsPage onOpenDetails={onOpenDetails} isFavouriteView={true} showHeader={true} isWrapper={true} />
+          <LinuxAssetsPage onOpenDetails={onOpenDetails} isFavouriteView={true} showHeader={false} isWrapper={true} />
           
           {/* Bottom Pagination Bar for Favourite View */}
           <div className="pagination-bar-container">
@@ -65,7 +65,7 @@ export default function MainContent({ isExpanded, setIsExpanded, activePage = 'b
   if (activePage === 'windows') {
     return (
       <main className="main-content-area">
-        <WindowsAssetsPage onOpenDetails={onOpenDetails} setActivePage={setActivePage} />
+        <WindowsAssetsPage onOpenDetails={onOpenDetails} />
       </main>
     );
   }
