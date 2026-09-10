@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 32" width="140" height="32">
+  <polygon points="6,24 16,6 20,13 15,13 11,24" fill="#E53935" />
+  <polygon points="11,24 15,13 22,24" fill="#C62828" />
+  <text x="28" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#2C3E50">arcon</text>
+</svg>

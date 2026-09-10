@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useCallback, useState, useEffect } from 'react';
 import TopHeader from './components/TopHeader';
 import LeftNavigation from './components/LeftNavigation';
@@ -15,8 +17,9 @@ import SessionMonitoringPage from './components/SessionMonitoringPage';
 import AccessControlPage from './components/AccessControlPage';
 
 const routeToPage = (pathname) => {
-  const route = decodeURIComponent(pathname).replace(/\/$/, '') || '/home';
+  const route = decodeURIComponent(pathname).replace(/\/$/, '') || '/';
   const routes = {
+    '/': 'login',
     '/login': 'login',
     '/admin': 'businessAssets',
     '/user': 'windows',
@@ -58,12 +61,9 @@ export default function App() {
   const handleLogin = (username) => {
     localStorage.setItem('auth_user', username);
     setIsAuthenticated(true);
-    if (username === 'admin') {
-      navigateToPage('businessAssets');
-      setActiveNavTab('stack');
-    } else {
-      navigateToPage('windows');
-    }
+    setActivePage('businessAssets');
+    setActiveNavTab('stack');
+    window.history.pushState({}, '', username === 'admin' ? '/admin' : '/home');
   };
 
   // activeOverlay: null | 'launcher' | 'profile' | 'notifications'
@@ -85,6 +85,9 @@ export default function App() {
   // activePage: 'windows' | 'businessAssets' | 'linux'
   const [activePage, setActivePage] = useState(() => {
     const routedPage = routeToPage(window.location.pathname);
+    if (routedPage === 'login') {
+      return 'login';
+    }
     if (routedPage && routedPage !== 'login' && (isAdmin || (!routedPage.startsWith('sessionMonitoring') && !routedPage.startsWith('access')))) {
       return routedPage;
     }
@@ -92,9 +95,8 @@ export default function App() {
   });
 
   const navigateToPage = useCallback((page) => {
-    const routedPage = page === 'sessionMonitoringRtsm' && !isAdmin ? 'windows' : page;
-    setActivePage(routedPage);
-    const nextRoute = pageToRoute(routedPage, isAdmin);
+    setActivePage(page);
+    const nextRoute = pageToRoute(page, isAdmin);
     if (window.location.pathname !== nextRoute) {
       window.history.pushState({}, '', nextRoute);
     }
@@ -105,13 +107,22 @@ export default function App() {
       const routedPage = routeToPage(window.location.pathname);
       const currentUser = localStorage.getItem('auth_user');
 
-      if (window.location.pathname === '/login') {
+      if (routedPage === 'login') {
+        if (isKnownUser(currentUser)) {
+          navigateToPage(currentUser === 'admin' ? 'businessAssets' : 'windows');
+        } else if (window.location.pathname !== '/login') {
+          window.history.replaceState({}, '', '/login');
+        }
         return;
       }
 
       if (!routedPage) {
-        localStorage.removeItem('auth_user');
-        navigateToPage(currentUser === 'admin' ? 'businessAssets' : 'windows');
+        if (isKnownUser(currentUser)) {
+          navigateToPage(currentUser === 'admin' ? 'businessAssets' : 'windows');
+        } else {
+          window.history.replaceState({}, '', '/login');
+          setActivePage('login');
+        }
         return;
       }
 
@@ -132,7 +143,7 @@ export default function App() {
     setActiveOverlay('details');
   };
 
-  if (window.location.pathname === '/login' && !isAuthenticated) {
+  if (activePage === 'login' || (!isAuthenticated && window.location.pathname === '/login')) {
     return <LoginPage onLogin={handleLogin} />;
   }
 

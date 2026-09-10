@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Globe, User, LockKeyhole, Eye, EyeOff, X } from 'lucide-react';
-import logo from '../assets/logo.svg';
+
+const logo = '/logo.svg';
 
 export default function LoginPage({ onLogin }) {
   const [step, setStep] = useState(1);

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, Grid3X3, MapPin, Plus, Search, X } from 'lucide-react';
-import logo from '../assets/logo.svg';
+
+const logo = '/logo.svg';
 
 const profilerColumns = ['SR.No', 'Profile Name', 'Profile ...', 'Asset Type', 'Asset Sub...', 'Default Pr...', 'Profile ...', 'Profile Type', 'Profile Da...', 'Profile Ti...', 'S'];
 

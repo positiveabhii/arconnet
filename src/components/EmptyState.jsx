@@ -1,5 +1,6 @@
 import React from 'react';
-import emptyIllustration from '../assets/empty-assets-placeholder.svg';
+
+const emptyIllustration = '/empty-assets-placeholder.svg';
 
 export default function EmptyState() {
   return (

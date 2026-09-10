@@ -1,0 +1,18 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/admin/access-control/assignment/page": "/admin/access-control/assignment",
+  "/admin/access-control/profiler/page": "/admin/access-control/profiler",
+  "/admin/page": "/admin",
+  "/admin/session-monitoring/home/page": "/admin/session-monitoring/home",
+  "/admin/session-monitoring/rtsm/page": "/admin/session-monitoring/rtsm",
+  "/faviourite/page": "/faviourite",
+  "/home/page": "/home",
+  "/linux passwordbased/page": "/linux passwordbased",
+  "/linux-passwordbased/page": "/linux-passwordbased",
+  "/login/page": "/login",
+  "/page": "/",
+  "/user/page": "/user",
+  "/windows/page": "/windows",
+  "/windows/terminal/page": "/windows/terminal"
+}

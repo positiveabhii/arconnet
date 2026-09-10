@@ -1,0 +1,13 @@
+var R=require("../../../../chunks/ssr/[turbopack]_runtime.js")("server/app/admin/access-control/profiler/page.js")
+R.c("server/chunks/ssr/_18rm8q2._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__0z5ob0b._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__0yu2jwx._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__07-cb6x._.js")
+R.c("server/chunks/ssr/app_layout_jsx_181co3-._.js")
+R.c("server/chunks/ssr/node_modules_next_dist_client_components_0wpq8j3._.js")
+R.c("server/chunks/ssr/node_modules_next_dist_client_components_builtin_forbidden_0symwr9.js")
+R.c("server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_0l_sp0x.js")
+R.c("server/chunks/ssr/node_modules_next_dist_client_components_builtin_global-error_0q-w892.js")
+R.c("server/chunks/ssr/_next-internal_server_app_admin_access-control_profiler_page_actions_1zg-0_o.js")
+R.m(35103)
+module.exports=R.m(35103).exports

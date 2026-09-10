@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Check, ChevronDown, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, Download, Filter, Grid3X3, Plus, Search, X } from 'lucide-react';
-import logo from '../assets/logo.svg';
+
+const logo = '/logo.svg';
 
 const sessionRows = Array.from({ length: 44 }, (_, index) => ({ number: index + 1, session: 'ROHITH(ROHI...', asset: 'Windows', alias: 'Windows Server', ip: '52.0.181.55', identity: index === 11 ? 'Rohith' : 'clark.kent', date: '10-Sep-2026 ...' }));
 const tableColumns = [['number', 'Sr ...'], ['status', 'Log Status Det...'], ['view', 'View Deta...'], ['session', 'Log Details'], ['type', 'Session T...'], ['asset', 'Asset Name'], ['alias', 'Asset Alias Name'], ['ip', 'Asset IP'], ['identity', 'Digital Identity'], ['date', 'Session Log...'], ['date2', 'Session Log'], ['date3', 'Session Log']];

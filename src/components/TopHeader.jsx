@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Search, ChevronDown, Clock, MapPin, Mail, Bell, Grid, X, SlidersHorizontal } from 'lucide-react';
-import logo from '../assets/logo.svg';
+
+const logo = '/logo.svg';
 
 export default function TopHeader({ activeOverlay, setActiveOverlay, activePage = 'windows' }) {
   const isAdmin = localStorage.getItem('auth_user') === 'admin';
