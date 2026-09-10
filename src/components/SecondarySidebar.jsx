@@ -27,7 +27,7 @@ export default function SecondarySidebar({
     <aside className={`secondary-sidebar ${!isSidebarOpen ? 'collapsed' : ''}`}>
       {(isAdmin || activeNavTab === 'stack') ? (
         <a
-          href={isAdmin ? '/admin' : '/home'}
+          href={isAdmin ? '/admin' : '/user'}
           className={`sidebar-item ${activePage === 'businessAssets' ? 'active' : ''}`}
         >
           <img src="/stack_open.svg" alt="My Apps" className="sidebar-custom-icon" />
@@ -53,14 +53,14 @@ export default function SecondarySidebar({
           <div className={`sidebar-submenu-wrapper ${isOsExpanded ? 'expanded' : ''}`}>
             <div className="sidebar-submenu-list">
               <a
-                href="/windows"
+                href="/user/windows"
                 className={`sidebar-submenu-item ${activePage === 'windows' ? 'active' : ''}`}
               >
                 <span>Windows</span>
                 {activePage === 'windows' && <ArrowRight size={14} className="submenu-arrow" />}
               </a>
               <a
-                href="/linux%20passwordbased"
+                href="/user/linux-passwordbased"
                 className={`sidebar-submenu-item ${activePage === 'linux' ? 'active' : ''}`}
               >
                 <span>Linux Passwordbased</span>
@@ -70,7 +70,7 @@ export default function SecondarySidebar({
           </div>
                {hasFavorites && (
             <a
-              href="/faviourite"
+              href="/user/faviourite"
               className={`sidebar-item ${activePage === 'favourite' ? 'active' : ''}`}
             >
               <Star size={16} className="sidebar-icon" />

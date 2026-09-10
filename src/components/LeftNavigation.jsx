@@ -24,7 +24,7 @@ export default function LeftNavigation({
     <nav className="left-nav-rail">
       {/* Top Stack Icon Button */}
       <a
-        href={isAdmin ? '/admin' : '/home'}
+        href={isAdmin ? '/admin' : '/user'}
         className={`nav-item ${isSidebarOpen && activeNavTab === 'stack' ? 'active' : ''}`}
         title="Business Assets"
         onClick={handleStackClick}
@@ -38,7 +38,7 @@ export default function LeftNavigation({
 
       {!isAdmin && (
         <a
-          href="/windows"
+          href="/user/windows"
           className={`nav-item ${isSidebarOpen && activeNavTab === 'file' ? 'active' : ''}`}
           title="Operating System"
           onClick={handleFileClick}

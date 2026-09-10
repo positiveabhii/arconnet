@@ -22,13 +22,11 @@ const routeToPage = (pathname) => {
     '/': 'login',
     '/login': 'login',
     '/admin': 'businessAssets',
-    '/user': 'windows',
-    '/home': 'businessAssets',
-    '/faviourite': 'favourite',
-    '/favourite': 'favourite',
-    '/windows': 'windows',
-    '/windows/terminal': 'windowsTerminal',
-    '/linux passwordbased': 'linux',
+    '/user': 'businessAssets',
+    '/user/faviourite': 'favourite',
+    '/user/windows': 'windows',
+    '/user/windows/terminal': 'windowsTerminal',
+    '/user/linux-passwordbased': 'linux',
     '/admin/session-monitoring/home': 'sessionMonitoring',
     '/admin/session-monitoring/rtsm': 'sessionMonitoringRtsm',
     '/admin/access-control/profiler': 'accessProfiler',
@@ -38,16 +36,16 @@ const routeToPage = (pathname) => {
 };
 
 const pageToRoute = (page, isAdmin = false) => ({
-  businessAssets: isAdmin ? '/admin' : '/home',
-  favourite: '/faviourite',
-  windows: '/windows',
-  windowsTerminal: '/windows/terminal',
-  linux: '/linux%20passwordbased',
+  businessAssets: isAdmin ? '/admin' : '/user',
+  favourite: '/user/faviourite',
+  windows: '/user/windows',
+  windowsTerminal: '/user/windows/terminal',
+  linux: '/user/linux-passwordbased',
   sessionMonitoring: '/admin/session-monitoring/home',
   sessionMonitoringRtsm: '/admin/session-monitoring/rtsm',
   accessProfiler: '/admin/access-control/profiler',
   accessAssignment: '/admin/access-control/assignment'
-}[page] || '/home');
+}[page] || '/user');
 
 const isKnownUser = (username) => username === 'admin' || username === 'Rohith';
 
@@ -60,7 +58,7 @@ const createDemoSession = (username) => {
 
 export default function App() {
   const storedUser = localStorage.getItem('auth_user');
-  const isAdmin = storedUser === 'admin' || decodeURIComponent(window.location.pathname).startsWith('/admin');
+  const isAdmin = storedUser === 'admin';
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return isKnownUser(localStorage.getItem('auth_user'));
   });
@@ -69,9 +67,10 @@ export default function App() {
     localStorage.setItem('auth_user', username);
     createDemoSession(username);
     setIsAuthenticated(true);
-    setActivePage('businessAssets');
-    setActiveNavTab('stack');
-    window.history.pushState({}, '', username === 'admin' ? '/admin' : '/home');
+    const nextPage = username === 'admin' ? 'businessAssets' : 'windows';
+    setActivePage(nextPage);
+    setActiveNavTab(username === 'admin' ? 'stack' : 'file');
+    window.history.pushState({}, '', username === 'admin' ? '/admin' : '/user/windows');
   };
 
   // activeOverlay: null | 'launcher' | 'profile' | 'notifications'
@@ -96,7 +95,7 @@ export default function App() {
     if (routedPage === 'login') {
       return 'login';
     }
-    if (routedPage && routedPage !== 'login' && (isAdmin || (!routedPage.startsWith('sessionMonitoring') && !routedPage.startsWith('access')))) {
+    if (routedPage && routedPage !== 'login' && (isAdmin || (!routedPage.startsWith('sessionMonitoring') && !routedPage.startsWith('access') && routedPage !== 'businessAssets'))) {
       return routedPage;
     }
     return localStorage.getItem('auth_user') === 'admin' ? 'businessAssets' : 'windows';
@@ -114,23 +113,24 @@ export default function App() {
     const handleRouteChange = () => {
       const routedPage = routeToPage(window.location.pathname);
       const currentUser = localStorage.getItem('auth_user');
+      const isCurrentUserAdmin = currentUser === 'admin';
+      const isAdminRoute = decodeURIComponent(window.location.pathname).startsWith('/admin');
+      const isUserRoute = decodeURIComponent(window.location.pathname).startsWith('/user');
 
       if (routedPage === 'login') {
-        if (isKnownUser(currentUser)) {
-          navigateToPage(currentUser === 'admin' ? 'businessAssets' : 'windows');
-        } else if (window.location.pathname !== '/login') {
-          window.history.replaceState({}, '', '/login');
-        }
+        setActivePage('login');
+        return;
+      }
+
+      if (!isKnownUser(currentUser) || (isAdminRoute && !isCurrentUserAdmin) || (isUserRoute && isCurrentUserAdmin)) {
+        window.history.replaceState({}, '', '/login');
+        setActivePage('login');
+        setIsAuthenticated(false);
         return;
       }
 
       if (!routedPage) {
-        if (isKnownUser(currentUser)) {
-          navigateToPage(currentUser === 'admin' ? 'businessAssets' : 'windows');
-        } else {
-          window.history.replaceState({}, '', '/login');
-          setActivePage('login');
-        }
+        navigateToPage(isCurrentUserAdmin ? 'businessAssets' : 'windows');
         return;
       }
 

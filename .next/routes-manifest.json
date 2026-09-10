@@ -72,30 +72,6 @@
       "namedRegex": "^/admin/session\\-monitoring/rtsm(?:/)?$"
     },
     {
-      "page": "/faviourite",
-      "regex": "^/faviourite(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/faviourite(?:/)?$"
-    },
-    {
-      "page": "/home",
-      "regex": "^/home(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/home(?:/)?$"
-    },
-    {
-      "page": "/linux passwordbased",
-      "regex": "^/linux passwordbased(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/linux passwordbased(?:/)?$"
-    },
-    {
-      "page": "/linux-passwordbased",
-      "regex": "^/linux\\-passwordbased(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/linux\\-passwordbased(?:/)?$"
-    },
-    {
       "page": "/login",
       "regex": "^/login(?:/)?$",
       "routeKeys": {},
@@ -108,16 +84,28 @@
       "namedRegex": "^/user(?:/)?$"
     },
     {
-      "page": "/windows",
-      "regex": "^/windows(?:/)?$",
+      "page": "/user/faviourite",
+      "regex": "^/user/faviourite(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/windows(?:/)?$"
+      "namedRegex": "^/user/faviourite(?:/)?$"
     },
     {
-      "page": "/windows/terminal",
-      "regex": "^/windows/terminal(?:/)?$",
+      "page": "/user/linux-passwordbased",
+      "regex": "^/user/linux\\-passwordbased(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/windows/terminal(?:/)?$"
+      "namedRegex": "^/user/linux\\-passwordbased(?:/)?$"
+    },
+    {
+      "page": "/user/windows",
+      "regex": "^/user/windows(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/user/windows(?:/)?$"
+    },
+    {
+      "page": "/user/windows/terminal",
+      "regex": "^/user/windows/terminal(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/user/windows/terminal(?:/)?$"
     }
   ],
   "dataRoutes": [],

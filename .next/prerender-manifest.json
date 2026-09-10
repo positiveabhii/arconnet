@@ -226,118 +226,6 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/faviourite": {
-      "routeType": "page",
-      "response": "complete",
-      "compute": "static",
-      "htmlSize": 6088,
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/faviourite",
-      "dataRoute": "/faviourite.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/home": {
-      "routeType": "page",
-      "response": "complete",
-      "compute": "static",
-      "htmlSize": 6076,
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/home",
-      "dataRoute": "/home.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/linux passwordbased": {
-      "routeType": "page",
-      "response": "complete",
-      "compute": "static",
-      "htmlSize": 6108,
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/linux passwordbased",
-      "dataRoute": "/linux passwordbased.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/linux-passwordbased": {
-      "routeType": "page",
-      "response": "complete",
-      "compute": "static",
-      "htmlSize": 6106,
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/linux-passwordbased",
-      "dataRoute": "/linux-passwordbased.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/login": {
       "routeType": "page",
       "response": "complete",
@@ -394,11 +282,11 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/windows": {
+    "/user/faviourite": {
       "routeType": "page",
       "response": "complete",
       "compute": "static",
-      "htmlSize": 6082,
+      "htmlSize": 6588,
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -411,8 +299,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/windows",
-      "dataRoute": "/windows.rsc",
+      "srcRoute": "/user/faviourite",
+      "dataRoute": "/user/faviourite.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -422,11 +310,11 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/windows/terminal": {
+    "/user/linux-passwordbased": {
       "routeType": "page",
       "response": "complete",
       "compute": "static",
-      "htmlSize": 6590,
+      "htmlSize": 6606,
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -439,8 +327,64 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/windows/terminal",
-      "dataRoute": "/windows/terminal.rsc",
+      "srcRoute": "/user/linux-passwordbased",
+      "dataRoute": "/user/linux-passwordbased.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/user/windows": {
+      "routeType": "page",
+      "response": "complete",
+      "compute": "static",
+      "htmlSize": 6582,
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/user/windows",
+      "dataRoute": "/user/windows.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/user/windows/terminal": {
+      "routeType": "page",
+      "response": "complete",
+      "compute": "static",
+      "htmlSize": 7090,
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/user/windows/terminal",
+      "dataRoute": "/user/windows/terminal.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
