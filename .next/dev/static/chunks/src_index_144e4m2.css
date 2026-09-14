@@ -3573,4 +3573,60 @@ label:nth-of-type(2) .details-input {
   display: block;
 }
 
+.landing-page-wrapper {
+  background-color: #14110f;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  font-family: Open Sans, sans-serif;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.landing-cover {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.landing-cta {
+  color: #fff;
+  background-color: #e53935;
+  border-radius: 6px;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 22px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color .2s, transform .2s;
+  display: inline-flex;
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+  box-shadow: 0 6px 20px #00000059;
+}
+
+.landing-cta:hover {
+  background-color: #c62828;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .landing-cta {
+    bottom: 24px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .landing-cta:hover {
+    transform: translateX(50%)translateY(-1px);
+  }
+}
+
 /*# sourceMappingURL=src_index_144e4m2.css.map*/

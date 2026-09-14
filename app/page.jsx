@@ -1,5 +1,5 @@
-import RouteApp from './RouteApp';
+import LandingPage from '../src/components/LandingPage';
 
 export default function Page() {
-	return <RouteApp initialPath="/" />;
+	return <LandingPage />;
 }

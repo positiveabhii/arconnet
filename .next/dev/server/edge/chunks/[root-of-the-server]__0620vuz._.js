@@ -31,7 +31,7 @@ const getRole = (request)=>{
 function middleware(request) {
     const { pathname } = request.nextUrl;
     const role = getRole(request);
-    const isLoginRoute = pathname === '/' || pathname === '/login';
+    const isLoginRoute = pathname === '/login';
     const isAdminRoute = pathname === '/admin' || pathname.startsWith('/admin/');
     const isUserRoute = [
         '/home',
@@ -50,9 +50,6 @@ function middleware(request) {
         if (role === 'user') {
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$response$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextResponse"].redirect(new URL('/home', request.url));
         }
-        if (pathname === '/') {
-            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$response$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextResponse"].redirect(new URL('/login', request.url));
-        }
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$response$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextResponse"].next();
     }
     if ((isAdminRoute || isUserRoute) && !role) {
@@ -68,7 +65,6 @@ function middleware(request) {
 }
 const config = {
     matcher: [
-        '/',
         '/login',
         '/admin/:path*',
         '/home',

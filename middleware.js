@@ -10,7 +10,7 @@ const getRole = (request) => {
 export function middleware(request) {
   const { pathname } = request.nextUrl;
   const role = getRole(request);
-  const isLoginRoute = pathname === '/' || pathname === '/login';
+  const isLoginRoute = pathname === '/login';
   const isAdminRoute = pathname === '/admin' || pathname.startsWith('/admin/');
   const isUserRoute = [
     '/home',
@@ -29,9 +29,6 @@ export function middleware(request) {
     }
     if (role === 'user') {
       return NextResponse.redirect(new URL('/home', request.url));
-    }
-    if (pathname === '/') {
-      return NextResponse.redirect(new URL('/login', request.url));
     }
     return NextResponse.next();
   }
@@ -53,7 +50,6 @@ export function middleware(request) {
 
 export const config = {
   matcher: [
-    '/',
     '/login',
     '/admin/:path*',
     '/home',

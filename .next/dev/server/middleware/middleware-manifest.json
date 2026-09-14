@@ -12,10 +12,6 @@
       "entrypoint": "server/edge/chunks/turbopack-node_modules_next_dist_esm_build_templates_edge-wrapper_0r5vfgi.js",
       "matchers": [
         {
-          "regexp": "/:nextData(_next/data/[^/]{1,})?/(/?index|/?index\\.json|/?index(?:\\.rsc|\\.segments/.+\\.segment\\.rsc))?",
-          "originalSource": "/"
-        },
-        {
           "regexp": "/:nextData(_next/data/[^/]{1,})?/login{(\\.json|\\.rsc|\\.segments/.+\\.segment\\.rsc)}?",
           "originalSource": "/login"
         },
@@ -45,9 +41,9 @@
       "env": {
         "__NEXT_BUILD_ID": "development",
         "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "7g5YTu7Bvms5Oubs04D4D0+GQHvyrPOuYnNaNiFwnms=",
-        "__NEXT_PREVIEW_MODE_ID": "692945cb0cd7ccf26bb98ef277de77e5",
-        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "1871a12c8d6667a4313a82ed01833d97b86bf5b1dbe9cf64bcd760bf724bb6e7",
-        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "6ab1f1659a00f932aa3d01b5206c1b769be69f91b03272dfecf941d963956467"
+        "__NEXT_PREVIEW_MODE_ID": "a22f1e1f85e547d376106819af05e561",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "98276b8ef150cfb1dd9d2f6a6494405f1989c7b3754f9daca95d7828153c5596",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "bba64cbff1fb394ce63e36ad5d72885b59c68a41bc5b65a129f29f1a9863c373"
       }
     }
   },
