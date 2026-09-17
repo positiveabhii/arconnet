@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import StateSwitcherBar from './components/StateSwitcherBar';
 import LoginPage from './components/LoginPage';
 import SessionMonitoringPage from './components/SessionMonitoringPage';
+import SessionLogViewPage from './components/SessionLogViewPage';
 import AccessControlPage from './components/AccessControlPage';
 import { getDemoRole, setDemoSession } from './auth';
 
@@ -33,6 +34,7 @@ const routeToPage = (pathname) => {
     '/user/linux-passwordbased': 'linux',
     '/admin/session-monitoring/home': 'sessionMonitoring',
     '/admin/session-monitoring/rtsm': 'sessionMonitoringRtsm',
+    '/admin/session-monitoring/log-view': 'sessionLogView',
     '/admin/access-control/profiler': 'accessProfiler',
     '/admin/access-control/assignment': 'accessAssignment'
   };
@@ -93,7 +95,7 @@ export default function App({ initialRole = null, initialPath = '/' }) {
         return;
       }
 
-      if (!currentRole || (isAdminRoute && !isCurrentUserAdmin) || (isUserRoute && isCurrentUserAdmin)) {
+      if (!currentRole) {
         setActivePage('login');
         setIsAuthenticated(false);
         return;
@@ -131,6 +133,10 @@ export default function App({ initialRole = null, initialPath = '/' }) {
 
   if (activePage === 'sessionMonitoring' || activePage === 'sessionMonitoringRtsm') {
     return <SessionMonitoringPage initialView={activePage === 'sessionMonitoringRtsm' ? 'rtsm' : 'session'} />;
+  }
+
+  if (activePage === 'sessionLogView') {
+    return <SessionLogViewPage onBack={() => window.history.back()} />;
   }
 
   if (activePage === 'accessProfiler' || activePage === 'accessAssignment') {

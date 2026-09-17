@@ -57,6 +57,7 @@ const routeToPage = (pathname)=>{
         '/user/linux-passwordbased': 'linux',
         '/admin/session-monitoring/home': 'sessionMonitoring',
         '/admin/session-monitoring/rtsm': 'sessionMonitoringRtsm',
+        '/admin/session-monitoring/log-view': 'sessionLogView',
         '/admin/access-control/profiler': 'accessProfiler',
         '/admin/access-control/assignment': 'accessAssignment'
     };
@@ -143,14 +144,14 @@ function App({ initialRole = null, initialPath = '/' }) {
             onLogin: handleLogin
         }, void 0, false, {
             fileName: "[project]/src/App.jsx",
-            lineNumber: 125,
+            lineNumber: 126,
             columnNumber: 12
         }, this);
     }
     if (activePage === 'windowsTerminal') {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$WindowsTerminalPage$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
             fileName: "[project]/src/App.jsx",
-            lineNumber: 129,
+            lineNumber: 130,
             columnNumber: 12
         }, this);
     }
@@ -159,7 +160,7 @@ function App({ initialRole = null, initialPath = '/' }) {
             initialView: activePage === 'sessionMonitoringRtsm' ? 'rtsm' : 'session'
         }, void 0, false, {
             fileName: "[project]/src/App.jsx",
-            lineNumber: 133,
+            lineNumber: 134,
             columnNumber: 12
         }, this);
     }
@@ -168,7 +169,7 @@ function App({ initialRole = null, initialPath = '/' }) {
             initialView: activePage === 'accessAssignment' ? 'assignment' : 'profiler'
         }, void 0, false, {
             fileName: "[project]/src/App.jsx",
-            lineNumber: 137,
+            lineNumber: 138,
             columnNumber: 12
         }, this);
     }
@@ -182,7 +183,7 @@ function App({ initialRole = null, initialPath = '/' }) {
                 isAdmin: isAdmin
             }, void 0, false, {
                 fileName: "[project]/src/App.jsx",
-                lineNumber: 143,
+                lineNumber: 144,
                 columnNumber: 7
             }, this),
             activeOverlay === 'launcher' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ApplicationLauncher$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -190,7 +191,7 @@ function App({ initialRole = null, initialPath = '/' }) {
                 isAdmin: isAdmin
             }, void 0, false, {
                 fileName: "[project]/src/App.jsx",
-                lineNumber: 152,
+                lineNumber: 153,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -204,7 +205,7 @@ function App({ initialRole = null, initialPath = '/' }) {
                         isAdmin: isAdmin
                     }, void 0, false, {
                         fileName: "[project]/src/App.jsx",
-                        lineNumber: 157,
+                        lineNumber: 158,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$SecondarySidebar$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -215,7 +216,7 @@ function App({ initialRole = null, initialPath = '/' }) {
                         isAdmin: isAdmin
                     }, void 0, false, {
                         fileName: "[project]/src/App.jsx",
-                        lineNumber: 164,
+                        lineNumber: 165,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$MainContent$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -225,32 +226,32 @@ function App({ initialRole = null, initialPath = '/' }) {
                         onOpenDetails: handleOpenDetails
                     }, void 0, false, {
                         fileName: "[project]/src/App.jsx",
-                        lineNumber: 171,
+                        lineNumber: 172,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/App.jsx",
-                lineNumber: 156,
+                lineNumber: 157,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Footer$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/App.jsx",
-                lineNumber: 180,
+                lineNumber: 181,
                 columnNumber: 7
             }, this),
             activeOverlay === 'profile' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProfileDrawer$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                 onClose: handleCloseOverlay
             }, void 0, false, {
                 fileName: "[project]/src/App.jsx",
-                lineNumber: 184,
+                lineNumber: 185,
                 columnNumber: 9
             }, this),
             activeOverlay === 'notifications' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$NotificationDrawer$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                 onClose: handleCloseOverlay
             }, void 0, false, {
                 fileName: "[project]/src/App.jsx",
-                lineNumber: 188,
+                lineNumber: 189,
                 columnNumber: 9
             }, this),
             activeOverlay === 'details' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$DetailsDrawer$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -258,13 +259,13 @@ function App({ initialRole = null, initialPath = '/' }) {
                 onClose: handleCloseOverlay
             }, void 0, false, {
                 fileName: "[project]/src/App.jsx",
-                lineNumber: 192,
+                lineNumber: 193,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/App.jsx",
-        lineNumber: 141,
+        lineNumber: 142,
         columnNumber: 5
     }, this);
 }
@@ -4338,6 +4339,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$grid$2d$3x3$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Grid3X3$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/grid-3x3.mjs [app-ssr] (ecmascript) <export default as Grid3X3>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/plus.mjs [app-ssr] (ecmascript) <export default as Plus>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Search$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/search.mjs [app-ssr] (ecmascript) <export default as Search>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$video$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Video$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/video.mjs [app-ssr] (ecmascript) <export default as Video>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/x.mjs [app-ssr] (ecmascript) <export default as X>");
 ;
 ;
@@ -4578,6 +4580,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
     const [activeRail, setActiveRail] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(initialView);
     const [searchOpen, setSearchOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [filterOpen, setFilterOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [selectedSession, setSelectedSession] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [columnOpen, setColumnOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [menuOpen, setMenuOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [pageSize, setPageSize] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(50);
@@ -4601,7 +4604,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                 onOpenMenu: ()=>setMenuOpen(!menuOpen)
             }, void 0, false, {
                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                lineNumber: 34,
+                lineNumber: 35,
                 columnNumber: 5
             }, this),
             menuOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4611,12 +4614,12 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                     children: "Workspace"
                 }, void 0, false, {
                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                    lineNumber: 35,
+                    lineNumber: 36,
                     columnNumber: 51
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                lineNumber: 35,
+                lineNumber: 36,
                 columnNumber: 18
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4635,7 +4638,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                         alt: ""
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                        lineNumber: 37,
+                                        lineNumber: 38,
                                         columnNumber: 177
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("small", {
@@ -4643,20 +4646,20 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                             "Session",
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 37,
+                                                lineNumber: 38,
                                                 columnNumber: 222
                                             }, this),
                                             "Monitoring"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                        lineNumber: 37,
+                                        lineNumber: 38,
                                         columnNumber: 208
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                lineNumber: 37,
+                                lineNumber: 38,
                                 columnNumber: 42
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -4669,26 +4672,26 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                         alt: ""
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                        lineNumber: 37,
+                                        lineNumber: 38,
                                         columnNumber: 370
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("small", {
                                         children: "RTSM"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                        lineNumber: 37,
+                                        lineNumber: 38,
                                         columnNumber: 400
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                lineNumber: 37,
+                                lineNumber: 38,
                                 columnNumber: 250
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                        lineNumber: 37,
+                        lineNumber: 38,
                         columnNumber: 7
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -4701,7 +4704,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                         children: isRtsm ? 'Real Time Session Monitoring' : 'Session Monitoring Logs'
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                        lineNumber: 39,
+                                        lineNumber: 40,
                                         columnNumber: 45
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4714,7 +4717,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                         children: "Auto refresh in 60 Seconds"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                        lineNumber: 39,
+                                                        lineNumber: 40,
                                                         columnNumber: 170
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4723,18 +4726,18 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                         "aria-label": "Toggle auto refresh",
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {}, void 0, false, {
                                                             fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                            lineNumber: 39,
+                                                            lineNumber: 40,
                                                             columnNumber: 379
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                        lineNumber: 39,
+                                                        lineNumber: 40,
                                                         columnNumber: 240
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 39,
+                                                lineNumber: 40,
                                                 columnNumber: 168
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4744,12 +4747,12 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                     size: 17
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                    lineNumber: 39,
+                                                    lineNumber: 40,
                                                     columnNumber: 471
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 39,
+                                                lineNumber: 40,
                                                 columnNumber: 400
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4760,20 +4763,20 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                         size: 16
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                        lineNumber: 39,
+                                                        lineNumber: 40,
                                                         columnNumber: 564
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         children: "Filter"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                        lineNumber: 39,
+                                                        lineNumber: 40,
                                                         columnNumber: 584
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 39,
+                                                lineNumber: 40,
                                                 columnNumber: 500
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4783,20 +4786,20 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                         children: "Download"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                        lineNumber: 39,
+                                                        lineNumber: 40,
                                                         columnNumber: 642
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__["Download"], {
                                                         size: 16
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                        lineNumber: 39,
+                                                        lineNumber: 40,
                                                         columnNumber: 663
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 39,
+                                                lineNumber: 40,
                                                 columnNumber: 612
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4806,24 +4809,24 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                     size: 19
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                    lineNumber: 39,
+                                                    lineNumber: 40,
                                                     columnNumber: 776
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 39,
+                                                lineNumber: 40,
                                                 columnNumber: 694
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                        lineNumber: 39,
+                                        lineNumber: 40,
                                         columnNumber: 123
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                lineNumber: 39,
+                                lineNumber: 40,
                                 columnNumber: 9
                             }, this),
                             searchOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4835,7 +4838,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                 size: 14
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 40,
+                                                lineNumber: 41,
                                                 columnNumber: 70
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -4843,13 +4846,13 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                 placeholder: "Search session logs"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 40,
+                                                lineNumber: 41,
                                                 columnNumber: 90
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                        lineNumber: 40,
+                                        lineNumber: 41,
                                         columnNumber: 63
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4859,18 +4862,18 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                             size: 15
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                            lineNumber: 40,
+                                            lineNumber: 41,
                                             columnNumber: 222
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                        lineNumber: 40,
+                                        lineNumber: 41,
                                         columnNumber: 151
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                lineNumber: 40,
+                                lineNumber: 41,
                                 columnNumber: 24
                             }, this),
                             columnOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4883,7 +4886,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                 children: "Customize columns"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 41,
+                                                lineNumber: 42,
                                                 columnNumber: 93
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4894,18 +4897,18 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                     size: 16
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                    lineNumber: 41,
+                                                    lineNumber: 42,
                                                     columnNumber: 237
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 41,
+                                                lineNumber: 42,
                                                 columnNumber: 127
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                        lineNumber: 41,
+                                        lineNumber: 42,
                                         columnNumber: 55
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4920,12 +4923,12 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                             size: 14
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                            lineNumber: 41,
+                                                            lineNumber: 42,
                                                             columnNumber: 528
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                        lineNumber: 41,
+                                                        lineNumber: 42,
                                                         columnNumber: 426
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4933,31 +4936,31 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                         "aria-hidden": "true"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                        lineNumber: 41,
+                                                        lineNumber: 42,
                                                         columnNumber: 555
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         children: label
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                        lineNumber: 41,
+                                                        lineNumber: 42,
                                                         columnNumber: 606
                                                     }, this)
                                                 ]
                                             }, key, true, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 41,
+                                                lineNumber: 42,
                                                 columnNumber: 343
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                        lineNumber: 41,
+                                        lineNumber: 42,
                                         columnNumber: 270
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                lineNumber: 41,
+                                lineNumber: 42,
                                 columnNumber: 24
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4971,17 +4974,17 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                         children: label
                                                     }, key, false, {
                                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                        lineNumber: 42,
+                                                        lineNumber: 43,
                                                         columnNumber: 224
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 42,
+                                                lineNumber: 43,
                                                 columnNumber: 135
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                            lineNumber: 42,
+                                            lineNumber: 43,
                                             columnNumber: 128
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -4993,7 +4996,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                                 children: row.number
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                                lineNumber: 42,
+                                                                lineNumber: 43,
                                                                 columnNumber: 360
                                                             }, this),
                                                             isColumnVisible('status') && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -5002,107 +5005,115 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                                         className: "status-dot"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                                        lineNumber: 42,
+                                                                        lineNumber: 43,
                                                                         columnNumber: 439
                                                                     }, this),
                                                                     "All Good"
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                                lineNumber: 42,
+                                                                lineNumber: 43,
                                                                 columnNumber: 435
                                                             }, this),
                                                             isColumnVisible('view') && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                    className: "view-details-trigger",
+                                                                    onClick: ()=>setSelectedSession(row),
+                                                                    children: "Details →"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/components/SessionMonitoringPage.jsx",
+                                                                    lineNumber: 43,
+                                                                    columnNumber: 516
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/components/SessionMonitoringPage.jsx",
+                                                                lineNumber: 43,
+                                                                columnNumber: 512
+                                                            }, this),
+                                                            isColumnVisible('session') && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                                     className: "view-log-button",
                                                                     children: [
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                            className: "view-camera",
-                                                                            children: "▣"
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$video$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Video$3e$__["Video"], {
+                                                                            size: 18,
+                                                                            className: "view-camera"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                                            lineNumber: 42,
-                                                                            columnNumber: 552
+                                                                            lineNumber: 43,
+                                                                            columnNumber: 697
                                                                         }, this),
                                                                         "View"
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                                    lineNumber: 42,
-                                                                    columnNumber: 516
+                                                                    lineNumber: 43,
+                                                                    columnNumber: 661
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                                lineNumber: 42,
-                                                                columnNumber: 512
+                                                                lineNumber: 43,
+                                                                columnNumber: 657
                                                             }, this),
-                                                            isColumnVisible('session') && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                            isColumnVisible('type') && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                                 children: row.session
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                                lineNumber: 42,
-                                                                columnNumber: 640
-                                                            }, this),
-                                                            isColumnVisible('type') && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                children: "Windows"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                                lineNumber: 42,
-                                                                columnNumber: 691
+                                                                lineNumber: 43,
+                                                                columnNumber: 787
                                                             }, this),
                                                             isColumnVisible('asset') && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                                 children: row.asset
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                                lineNumber: 42,
-                                                                columnNumber: 737
+                                                                lineNumber: 43,
+                                                                columnNumber: 839
                                                             }, this),
                                                             isColumnVisible('alias') && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                                 children: row.alias
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                                lineNumber: 42,
-                                                                columnNumber: 787
+                                                                lineNumber: 43,
+                                                                columnNumber: 889
                                                             }, this),
                                                             isColumnVisible('ip') && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                                 children: row.ip
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                                lineNumber: 42,
-                                                                columnNumber: 834
+                                                                lineNumber: 43,
+                                                                columnNumber: 936
                                                             }, this),
                                                             isColumnVisible('identity') && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                                 children: row.identity
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                                lineNumber: 42,
-                                                                columnNumber: 884
+                                                                lineNumber: 43,
+                                                                columnNumber: 986
                                                             }, this),
                                                             isColumnVisible('date') && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                                 children: row.date
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                                lineNumber: 42,
-                                                                columnNumber: 936
+                                                                lineNumber: 43,
+                                                                columnNumber: 1038
                                                             }, this),
                                                             isColumnVisible('date2') && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                                 children: row.date
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                                lineNumber: 42,
-                                                                columnNumber: 985
+                                                                lineNumber: 43,
+                                                                columnNumber: 1087
                                                             }, this),
                                                             isColumnVisible('date3') && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                                 children: row.date
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                                lineNumber: 42,
-                                                                columnNumber: 1034
+                                                                lineNumber: 43,
+                                                                columnNumber: 1136
                                                             }, this)
                                                         ]
                                                     }, row.number, true, {
                                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                        lineNumber: 42,
+                                                        lineNumber: 43,
                                                         columnNumber: 309
                                                     }, this)),
                                                 isRtsm && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -5112,29 +5123,29 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                         children: "No Rows To Show"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                        lineNumber: 42,
-                                                        columnNumber: 1103
+                                                        lineNumber: 43,
+                                                        columnNumber: 1205
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                    lineNumber: 42,
-                                                    columnNumber: 1072
+                                                    lineNumber: 43,
+                                                    columnNumber: 1174
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                            lineNumber: 42,
+                                            lineNumber: 43,
                                             columnNumber: 265
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                    lineNumber: 42,
+                                    lineNumber: 43,
                                     columnNumber: 48
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                lineNumber: 42,
+                                lineNumber: 43,
                                 columnNumber: 9
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5146,7 +5157,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                 children: "Page Size:"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 43,
+                                                lineNumber: 44,
                                                 columnNumber: 62
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5158,26 +5169,26 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                         size: 13
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                        lineNumber: 43,
+                                                        lineNumber: 44,
                                                         columnNumber: 181
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 43,
+                                                lineNumber: 44,
                                                 columnNumber: 85
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                        lineNumber: 43,
+                                        lineNumber: 44,
                                         columnNumber: 60
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
                                         children: isRtsm ? '0 to 0 of 0' : '1 to 44 of 44'
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                        lineNumber: 43,
+                                        lineNumber: 44,
                                         columnNumber: 219
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5189,12 +5200,12 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                     size: 15
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                    lineNumber: 43,
+                                                    lineNumber: 44,
                                                     columnNumber: 321
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 43,
+                                                lineNumber: 44,
                                                 columnNumber: 304
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5203,19 +5214,19 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                     size: 15
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                    lineNumber: 43,
+                                                    lineNumber: 44,
                                                     columnNumber: 373
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 43,
+                                                lineNumber: 44,
                                                 columnNumber: 356
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 children: isRtsm ? 'Page 0 of 0' : 'Page 1 of 1'
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 43,
+                                                lineNumber: 44,
                                                 columnNumber: 407
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5224,12 +5235,12 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                     size: 15
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                    lineNumber: 43,
+                                                    lineNumber: 44,
                                                     columnNumber: 477
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 43,
+                                                lineNumber: 44,
                                                 columnNumber: 460
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5238,36 +5249,36 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                                     size: 15
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                    lineNumber: 43,
+                                                    lineNumber: 44,
                                                     columnNumber: 529
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                                lineNumber: 43,
+                                                lineNumber: 44,
                                                 columnNumber: 512
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                        lineNumber: 43,
+                                        lineNumber: 44,
                                         columnNumber: 278
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                lineNumber: 43,
+                                lineNumber: 44,
                                 columnNumber: 9
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                        lineNumber: 38,
+                        lineNumber: 39,
                         columnNumber: 7
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                lineNumber: 36,
+                lineNumber: 37,
                 columnNumber: 5
             }, this),
             filterOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5284,7 +5295,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                     children: "Filter Logs"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                    lineNumber: 46,
+                                    lineNumber: 47,
                                     columnNumber: 231
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5294,18 +5305,18 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                         size: 20
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                        lineNumber: 46,
+                                        lineNumber: 47,
                                         columnNumber: 330
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                    lineNumber: 46,
+                                    lineNumber: 47,
                                     columnNumber: 259
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                            lineNumber: 46,
+                            lineNumber: 47,
                             columnNumber: 189
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5317,7 +5328,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                     placeholder: "Select Lob"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                    lineNumber: 46,
+                                    lineNumber: 47,
                                     columnNumber: 400
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(FilterSelect, {
@@ -5325,7 +5336,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                     placeholder: "Select Asset Group"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                    lineNumber: 46,
+                                    lineNumber: 47,
                                     columnNumber: 462
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(FilterSelect, {
@@ -5333,7 +5344,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                     placeholder: "Select Role/Department"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                    lineNumber: 46,
+                                    lineNumber: 47,
                                     columnNumber: 531
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(FilterField, {
@@ -5341,7 +5352,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                     placeholder: "Enter User Name"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                    lineNumber: 46,
+                                    lineNumber: 47,
                                     columnNumber: 608
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(FilterField, {
@@ -5349,7 +5360,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                     placeholder: "Enter IP Address"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                    lineNumber: 46,
+                                    lineNumber: 47,
                                     columnNumber: 678
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(FilterField, {
@@ -5357,7 +5368,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                     placeholder: "Search Process Log"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                    lineNumber: 46,
+                                    lineNumber: 47,
                                     columnNumber: 743
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(FilterField, {
@@ -5365,7 +5376,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                     placeholder: "Search Command Log"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                    lineNumber: 46,
+                                    lineNumber: 47,
                                     columnNumber: 811
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(FilterField, {
@@ -5373,7 +5384,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                     placeholder: "Search Metadata Log"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                    lineNumber: 46,
+                                    lineNumber: 47,
                                     columnNumber: 879
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5384,7 +5395,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                             value: "8/10/2026 0:00:00"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                            lineNumber: 46,
+                                            lineNumber: 47,
                                             columnNumber: 989
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(FilterField, {
@@ -5392,19 +5403,19 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                             value: "9/10/2026 23:59:59"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                            lineNumber: 46,
+                                            lineNumber: 47,
                                             columnNumber: 1074
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                    lineNumber: 46,
+                                    lineNumber: 47,
                                     columnNumber: 949
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                            lineNumber: 46,
+                            lineNumber: 47,
                             columnNumber: 360
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5416,7 +5427,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                     children: "Clear"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                    lineNumber: 46,
+                                    lineNumber: 47,
                                     columnNumber: 1213
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5425,25 +5436,33 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                                     children: "Apply"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                                    lineNumber: 46,
+                                    lineNumber: 47,
                                     columnNumber: 1297
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                            lineNumber: 46,
+                            lineNumber: 47,
                             columnNumber: 1170
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                    lineNumber: 46,
+                    lineNumber: 47,
                     columnNumber: 100
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                lineNumber: 46,
+                lineNumber: 47,
                 columnNumber: 20
+            }, this),
+            selectedSession && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ViewDetailsDrawer, {
+                session: selectedSession,
+                onClose: ()=>setSelectedSession(null)
+            }, void 0, false, {
+                fileName: "[project]/src/components/SessionMonitoringPage.jsx",
+                lineNumber: 48,
+                columnNumber: 25
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
                 className: "monitoring-footer",
@@ -5453,7 +5472,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                         children: "|"
                     }, void 0, false, {
                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                        lineNumber: 47,
+                        lineNumber: 49,
                         columnNumber: 60
                     }, this),
                     " ",
@@ -5461,7 +5480,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                         children: "▲ arcon"
                     }, void 0, false, {
                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                        lineNumber: 47,
+                        lineNumber: 49,
                         columnNumber: 69
                     }, this),
                     " ",
@@ -5469,7 +5488,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                         children: "|"
                     }, void 0, false, {
                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                        lineNumber: 47,
+                        lineNumber: 49,
                         columnNumber: 94
                     }, this),
                     " V10.11.005_HF1 ",
@@ -5477,7 +5496,7 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                         children: "|"
                     }, void 0, false, {
                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                        lineNumber: 47,
+                        lineNumber: 49,
                         columnNumber: 118
                     }, this),
                     " Session Monitoring ",
@@ -5485,21 +5504,167 @@ function SessionMonitoringPage({ initialView = 'session' }) {
                         children: "|"
                     }, void 0, false, {
                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                        lineNumber: 47,
+                        lineNumber: 49,
                         columnNumber: 146
                     }, this),
                     " All Rights Reserved."
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                lineNumber: 47,
+                lineNumber: 49,
                 columnNumber: 5
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-        lineNumber: 33,
+        lineNumber: 34,
         columnNumber: 10
+    }, this);
+}
+function ViewDetailsDrawer({ session, onClose }) {
+    const details = [
+        {
+            label: 'Asset IP',
+            value: session.ip
+        },
+        {
+            label: 'Digital Identity Username',
+            value: session.identity
+        },
+        {
+            label: 'Asset Host Name',
+            value: session.ip
+        },
+        {
+            label: 'Session Taken By',
+            value: 'ROHITH'
+        },
+        {
+            label: 'Asset Domain Name',
+            value: session.ip
+        },
+        {
+            label: 'Session ID',
+            value: '2525'
+        },
+        {
+            label: 'LOB',
+            value: 'SHARJAH'
+        },
+        {
+            label: 'Asset Group',
+            value: 'JNGroup Servers'
+        },
+        {
+            label: 'Connection Type',
+            value: 'AGWA'
+        },
+        {
+            label: 'Digital Identity Category',
+            value: 'Non Personal'
+        },
+        {
+            label: 'Reference Number',
+            value: 'NA'
+        },
+        {
+            label: 'Other Details',
+            value: 'NA'
+        },
+        {
+            label: 'User Machine Details',
+            value: '12.200.1.101[Chrome][...'
+        },
+        {
+            label: 'Connected Monitors',
+            value: '1'
+        }
+    ];
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "monitoring-drawer-overlay",
+        onClick: onClose,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("aside", {
+            className: "monitoring-filter-drawer",
+            onClick: (e)=>e.stopPropagation(),
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "monitoring-drawer-header",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                            children: "View Details"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/SessionMonitoringPage.jsx",
+                            lineNumber: 75,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            onClick: onClose,
+                            "aria-label": "Close details",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
+                                size: 20
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/SessionMonitoringPage.jsx",
+                                lineNumber: 76,
+                                columnNumber: 64
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/SessionMonitoringPage.jsx",
+                            lineNumber: 76,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/components/SessionMonitoringPage.jsx",
+                    lineNumber: 74,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "monitoring-drawer-form",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "view-details-grid",
+                        children: details.map((item, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "view-details-item",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        children: item.label
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/SessionMonitoringPage.jsx",
+                                        lineNumber: 82,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        children: item.value
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/SessionMonitoringPage.jsx",
+                                        lineNumber: 83,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, idx, true, {
+                                fileName: "[project]/src/components/SessionMonitoringPage.jsx",
+                                lineNumber: 81,
+                                columnNumber: 15
+                            }, this))
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/SessionMonitoringPage.jsx",
+                        lineNumber: 79,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/src/components/SessionMonitoringPage.jsx",
+                    lineNumber: 78,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/src/components/SessionMonitoringPage.jsx",
+            lineNumber: 73,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/src/components/SessionMonitoringPage.jsx",
+        lineNumber: 72,
+        columnNumber: 5
     }, this);
 }
 function FilterField({ label, placeholder, value }) {
@@ -5510,7 +5675,7 @@ function FilterField({ label, placeholder, value }) {
                 children: label
             }, void 0, false, {
                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                lineNumber: 51,
+                lineNumber: 93,
                 columnNumber: 103
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -5518,13 +5683,13 @@ function FilterField({ label, placeholder, value }) {
                 defaultValue: value
             }, void 0, false, {
                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                lineNumber: 51,
+                lineNumber: 93,
                 columnNumber: 123
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-        lineNumber: 51,
+        lineNumber: 93,
         columnNumber: 62
     }, this);
 }
@@ -5539,13 +5704,13 @@ function FilterSelect({ label, placeholder, required }) {
                         children: " *"
                     }, void 0, false, {
                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                        lineNumber: 52,
+                        lineNumber: 94,
                         columnNumber: 133
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                lineNumber: 52,
+                lineNumber: 94,
                 columnNumber: 107
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -5556,26 +5721,26 @@ function FilterSelect({ label, placeholder, required }) {
                         children: placeholder
                     }, void 0, false, {
                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                        lineNumber: 52,
+                        lineNumber: 94,
                         columnNumber: 174
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                         children: "All"
                     }, void 0, false, {
                         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                        lineNumber: 52,
+                        lineNumber: 94,
                         columnNumber: 213
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-                lineNumber: 52,
+                lineNumber: 94,
                 columnNumber: 150
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/SessionMonitoringPage.jsx",
-        lineNumber: 52,
+        lineNumber: 94,
         columnNumber: 66
     }, this);
 }

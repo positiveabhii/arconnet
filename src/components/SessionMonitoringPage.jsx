@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Check, ChevronDown, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, Download, Filter, Grid3X3, Plus, Search, X } from 'lucide-react';
+import { Check, ChevronDown, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, Download, Filter, Grid3X3, Plus, Search, Video, X } from 'lucide-react';
 
 const logo = '/logo.svg';
 
@@ -16,6 +16,7 @@ export default function SessionMonitoringPage({ initialView = 'session' }) {
   const [activeRail, setActiveRail] = useState(initialView);
   const [searchOpen, setSearchOpen] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
+  const [selectedSession, setSelectedSession] = useState(null);
   const [columnOpen, setColumnOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [pageSize, setPageSize] = useState(50);
@@ -30,6 +31,11 @@ export default function SessionMonitoringPage({ initialView = 'session' }) {
     setter((columns) => columns.includes(key) ? columns.filter((column) => column !== key) : [...columns, key]);
   };
 
+  const handleViewLog = () => {
+    window.history.pushState({}, '', '/admin/session-monitoring/log-view');
+    window.dispatchEvent(new Event('popstate'));
+  };
+
   return <div className="monitoring-page">
     <MonitoringHeader onOpenMenu={() => setMenuOpen(!menuOpen)} />
     {menuOpen && <div className="monitoring-menu"><a href="/admin">Workspace</a></div>}
@@ -39,13 +45,54 @@ export default function SessionMonitoringPage({ initialView = 'session' }) {
         <div className="monitoring-toolbar"><h2>{isRtsm ? 'Real Time Session Monitoring' : 'Session Monitoring Logs'}</h2><div className="monitoring-tools">{isRtsm && <><span className="rtsm-refresh-label">Auto refresh in 60 Seconds</span><button className={`rtsm-toggle ${autoRefresh ? 'on' : ''}`} onClick={() => setAutoRefresh(!autoRefresh)} aria-label="Toggle auto refresh"><span /></button></>}<button aria-label="Search" onClick={() => setSearchOpen(!searchOpen)}><Search size={17} /></button><button aria-label="Filter" onClick={() => setFilterOpen(true)}><Filter size={16} /><span>Filter</span></button><button aria-label="Download"><span>Download</span><Download size={16} /></button><button aria-label="Customize columns" onClick={() => setColumnOpen(!columnOpen)}><Plus size={19} /></button></div></div>
         {searchOpen && <div className="monitoring-filter-row"><label><Search size={14} /><input autoFocus placeholder="Search session logs" /></label><button onClick={() => setSearchOpen(false)} aria-label="Close search"><X size={15} /></button></div>}
         {columnOpen && <div className="column-picker"><div className="column-picker-header"><strong>Customize columns</strong><button className="column-picker-close" onClick={() => setColumnOpen(false)} aria-label="Close column picker"><Plus size={16} /></button></div><div className="column-picker-list">{pickerOptions.map(([key, label]) => <button key={key} className="column-picker-item" onClick={() => toggleColumn(key)}><span className={`column-checkbox ${isColumnVisible(key) ? 'checked' : ''}`}>{isColumnVisible(key) && <Check size={14} />}</span><span className="column-grip" aria-hidden="true" /><span>{label}</span></button>)}</div></div>}
-        <div className="monitoring-table-wrap"><table className={`monitoring-table ${isRtsm ? 'monitoring-table-empty' : ''}`}><thead><tr>{(isRtsm ? rtsmColumns : tableColumns).map(([key, label]) => isColumnVisible(key) && <th key={key}>{label}</th>)}</tr></thead><tbody>{!isRtsm && sessionRows.map((row) => <tr key={row.number}>{isColumnVisible('number') && <td className="row-number">{row.number}</td>}{isColumnVisible('status') && <td><span className="status-dot" />All Good</td>}{isColumnVisible('view') && <td><button className="view-log-button"><span className="view-camera">▣</span>View</button></td>}{isColumnVisible('session') && <td>{row.session}</td>}{isColumnVisible('type') && <td>Windows</td>}{isColumnVisible('asset') && <td>{row.asset}</td>}{isColumnVisible('alias') && <td>{row.alias}</td>}{isColumnVisible('ip') && <td>{row.ip}</td>}{isColumnVisible('identity') && <td>{row.identity}</td>}{isColumnVisible('date') && <td>{row.date}</td>}{isColumnVisible('date2') && <td>{row.date}</td>}{isColumnVisible('date3') && <td>{row.date}</td>}</tr>)}{isRtsm && <tr className="rtsm-empty-row"><td colSpan={visibleRtsmColumns.length || 1}>No Rows To Show</td></tr>}</tbody></table></div>
+        <div className="monitoring-table-wrap"><table className={`monitoring-table ${isRtsm ? 'monitoring-table-empty' : ''}`}><thead><tr>{(isRtsm ? rtsmColumns : tableColumns).map(([key, label]) => isColumnVisible(key) && <th key={key}>{label}</th>)}</tr></thead><tbody>{!isRtsm && sessionRows.map((row) => <tr key={row.number}>{isColumnVisible('number') && <td className="row-number">{row.number}</td>}{isColumnVisible('status') && <td><span className="status-dot" />All Good</td>}{isColumnVisible('view') && <td><button className="view-details-trigger" onClick={() => setSelectedSession(row)}>Details &rarr;</button></td>}{isColumnVisible('session') && <td><button className="view-log-button" onClick={handleViewLog}><Video size={18} className="view-camera" />View</button></td>}{isColumnVisible('type') && <td>{row.session}</td>}{isColumnVisible('asset') && <td>{row.asset}</td>}{isColumnVisible('alias') && <td>{row.alias}</td>}{isColumnVisible('ip') && <td>{row.ip}</td>}{isColumnVisible('identity') && <td>{row.identity}</td>}{isColumnVisible('date') && <td>{row.date}</td>}{isColumnVisible('date2') && <td>{row.date}</td>}{isColumnVisible('date3') && <td>{row.date}</td>}</tr>)}{isRtsm && <tr className="rtsm-empty-row"><td colSpan={visibleRtsmColumns.length || 1}>No Rows To Show</td></tr>}</tbody></table></div>
         <div className="monitoring-pagination">{!isRtsm && <><span>Page Size:</span><button className="page-size" onClick={() => setPageSize(pageSize === 50 ? 100 : 50)}>{pageSize}<ChevronDown size={13} /></button></>}<strong>{isRtsm ? '0 to 0 of 0' : '1 to 44 of 44'}</strong><div className="page-nav"><button disabled><ChevronsLeft size={15} /></button><button disabled><ChevronLeft size={15} /></button><span>{isRtsm ? 'Page 0 of 0' : 'Page 1 of 1'}</span><button disabled><ChevronRight size={15} /></button><button disabled><ChevronsRight size={15} /></button></div></div>
       </main>
     </div>
     {filterOpen && <div className="monitoring-drawer-overlay" onClick={() => setFilterOpen(false)}><aside className="monitoring-filter-drawer" onClick={(event) => event.stopPropagation()}><div className="monitoring-drawer-header"><strong>Filter Logs</strong><button onClick={() => setFilterOpen(false)} aria-label="Close filter"><X size={20} /></button></div><div className="monitoring-drawer-form"><FilterSelect label="LOB" required placeholder="Select Lob" /><FilterSelect label="Asset Group" placeholder="Select Asset Group" /><FilterSelect label="Role/Department" placeholder="Select Role/Department" /><FilterField label="Session Taken By" placeholder="Enter User Name" /><FilterField label="IP Address" placeholder="Enter IP Address" /><FilterField label="Process Log" placeholder="Search Process Log" /><FilterField label="Command Log" placeholder="Search Command Log" /><FilterField label="Metadata Log" placeholder="Search Metadata Log" /><div className="monitoring-date-fields"><FilterField label="From Date & Time for Session Log In" value="8/10/2026 0:00:00" /><FilterField label="To Date & Time for Session Log In" value="9/10/2026 23:59:59" /></div></div><div className="monitoring-drawer-actions"><button className="clear-filter" onClick={() => setFilterOpen(false)}>Clear</button><button className="apply-filter" onClick={() => setFilterOpen(false)}>Apply</button></div></aside></div>}
+    {selectedSession && <ViewDetailsDrawer session={selectedSession} onClose={() => setSelectedSession(null)} />}
     <footer className="monitoring-footer">Copyright © 2026 <b>|</b> <strong>▲ arcon</strong> <b>|</b> V10.11.005_HF1 <b>|</b> Session Monitoring <b>|</b> All Rights Reserved.</footer>
   </div>;
+}
+
+function ViewDetailsDrawer({ session, onClose }) {
+  const details = [
+    { label: 'Asset IP', value: session.ip },
+    { label: 'Digital Identity Username', value: session.identity },
+    { label: 'Asset Host Name', value: session.ip },
+    { label: 'Session Taken By', value: 'ROHITH' },
+    { label: 'Asset Domain Name', value: session.ip },
+    { label: 'Session ID', value: '2525' },
+    { label: 'LOB', value: 'SHARJAH' },
+    { label: 'Asset Group', value: 'JNGroup Servers' },
+    { label: 'Connection Type', value: 'AGWA' },
+    { label: 'Digital Identity Category', value: 'Non Personal' },
+    { label: 'Reference Number', value: 'NA' },
+    { label: 'Other Details', value: 'NA' },
+    { label: 'User Machine Details', value: '12.200.1.101[Chrome][...' },
+    { label: 'Connected Monitors', value: '1' }
+  ];
+
+  return (
+    <div className="monitoring-drawer-overlay" onClick={onClose}>
+      <aside className="monitoring-filter-drawer" onClick={(e) => e.stopPropagation()}>
+        <div className="monitoring-drawer-header">
+          <strong>View Details</strong>
+          <button onClick={onClose} aria-label="Close details"><X size={20} /></button>
+        </div>
+        <div className="monitoring-drawer-form">
+          <div className="view-details-grid">
+            {details.map((item, idx) => (
+              <div key={idx} className="view-details-item">
+                <label>{item.label}</label>
+                <span>{item.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </aside>
+    </div>
+  );
 }
 
 function FilterField({ label, placeholder, value }) { return <label className="monitoring-form-field"><span>{label}</span><input placeholder={placeholder} defaultValue={value} /></label>; }
