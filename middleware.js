@@ -11,17 +11,25 @@ export function middleware(request) {
   const { pathname } = request.nextUrl;
   const role = getRole(request);
   const isLoginRoute = pathname === '/login';
-  const isAdminRoute = pathname === '/admin' || pathname.startsWith('/admin/');
-  const isUserRoute = [
+
+  // Define valid routes to avoid redirect loops or breaking static assets
+  const validRoutes = [
+    '/login',
     '/home',
     '/windows',
     '/linux-passwordbased',
-    '/user',
-    '/user/faviourite',
-    '/user/windows',
-    '/user/windows/terminal',
-    '/user/linux-passwordbased'
-  ].includes(pathname);
+    '/admin',
+    '/user'
+  ];
+
+  const isStaticAsset = pathname.startsWith('/_next') || 
+                        pathname.startsWith('/api') || 
+                        pathname.includes('.') ||
+                        pathname === '/favicon.ico';
+
+  if (isStaticAsset) {
+    return NextResponse.next();
+  }
 
   if (isLoginRoute) {
     if (role === 'admin') {
@@ -33,16 +41,15 @@ export function middleware(request) {
     return NextResponse.next();
   }
 
-  if ((isAdminRoute || isUserRoute) && !role) {
-    return NextResponse.redirect(new URL('/login', request.url));
-  }
-
-  if (isAdminRoute && role !== 'admin') {
+  // Redirect root to /home if not explicitly going to login
+  if (pathname === '/') {
     return NextResponse.redirect(new URL('/home', request.url));
   }
 
-  if (isUserRoute && role !== 'user') {
-    return NextResponse.redirect(new URL('/admin', request.url));
+  // Fallback for random routes
+  const isKnownRoute = validRoutes.some(route => pathname === route || pathname.startsWith(route + '/'));
+  if (!isKnownRoute) {
+    return NextResponse.redirect(new URL('/home', request.url));
   }
 
   return NextResponse.next();
@@ -50,11 +57,13 @@ export function middleware(request) {
 
 export const config = {
   matcher: [
-    '/login',
-    '/admin/:path*',
-    '/home',
-    '/windows',
-    '/linux-passwordbased',
-    '/user/:path*'
-  ]
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     */
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+  ],
 };

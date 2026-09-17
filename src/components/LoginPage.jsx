@@ -30,20 +30,9 @@ export default function LoginPage({ onLogin }) {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (!password) {
-      setError('Password is required');
-      return;
-    }
-
-    if (
-      (username === 'Rohith' && password === 'ARCOS@arcon@2027') ||
-      (username === 'admin' && password === 'ARCOS@arcon@2027')
-    ) {
-      setError('');
-      setStep(3);
-    } else {
-      setError('Invalid credentials');
-    }
+    // No credential check, just proceed
+    setError('');
+    setStep(3);
   };
 
   useEffect(() => {

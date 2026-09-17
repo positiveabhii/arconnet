@@ -21,7 +21,7 @@ import { getDemoRole, setDemoSession } from './auth';
 const routeToPage = (pathname) => {
   const route = decodeURIComponent(pathname).replace(/\/$/, '') || '/';
   const routes = {
-    '/': 'login',
+    '/': 'businessAssets',
     '/login': 'login',
     '/home': 'businessAssets',
     '/windows': 'windows',
@@ -95,14 +95,8 @@ export default function App({ initialRole = null, initialPath = '/' }) {
         return;
       }
 
-      if (!currentRole) {
-        setActivePage('login');
-        setIsAuthenticated(false);
-        return;
-      }
-
       if (!routedPage) {
-        setActivePage(isCurrentUserAdmin ? 'businessAssets' : 'windows');
+        window.location.href = '/home';
         return;
       }
 
@@ -123,7 +117,7 @@ export default function App({ initialRole = null, initialPath = '/' }) {
     setActiveOverlay('details');
   };
 
-  if (activePage === 'login' || !isAuthenticated) {
+  if (activePage === 'login') {
     return <LoginPage onLogin={handleLogin} />;
   }
 
