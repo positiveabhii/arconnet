@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {children}
-        <Script src="https://demo.insurgeai.com/embed/insurgeai.js" strategy="afterInteractive" />
+        <Script src="https://api.insurgeai.com/static/browser-control-helper.js" strategy="afterInteractive" />
       </body>
     </html>
   );
