@@ -39,7 +39,8 @@ function middleware(request) {
         '/windows',
         '/linux-passwordbased',
         '/admin',
-        '/user'
+        '/user',
+        '/admin/session-monitoring/log-view'
     ];
     const isStaticAsset = pathname.startsWith('/_next') || pathname.startsWith('/api') || pathname.includes('.') || pathname === '/favicon.ico';
     if (isStaticAsset) {

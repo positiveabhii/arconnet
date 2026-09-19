@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import TopHeader from './components/TopHeader';
 import LeftNavigation from './components/LeftNavigation';
 import SecondarySidebar from './components/SecondarySidebar';
@@ -11,7 +11,6 @@ import ProfileDrawer from './components/ProfileDrawer';
 import NotificationDrawer from './components/NotificationDrawer';
 import DetailsDrawer from './components/DetailsDrawer';
 import Footer from './components/Footer';
-import StateSwitcherBar from './components/StateSwitcherBar';
 import LoginPage from './components/LoginPage';
 import SessionMonitoringPage from './components/SessionMonitoringPage';
 import SessionLogViewPage from './components/SessionLogViewPage';
