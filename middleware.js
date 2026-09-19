@@ -14,6 +14,7 @@ export function middleware(request) {
 
   // Define valid routes to avoid redirect loops or breaking static assets
   const validRoutes = [
+    '/',
     '/login',
     '/home',
     '/windows',
@@ -23,16 +24,16 @@ export function middleware(request) {
     '/admin/session-monitoring/log-view'
   ];
 
-  const isStaticAsset = pathname.startsWith('/_next') || 
-                        pathname.startsWith('/api') || 
-                        pathname.includes('.') ||
-                        pathname === '/favicon.ico';
+  const isStaticAsset = pathname.startsWith('/_next') ||
+    pathname.startsWith('/api') ||
+    pathname.includes('.') ||
+    pathname === '/favicon.ico';
 
   if (isStaticAsset) {
     return NextResponse.next();
   }
 
-  if (isLoginRoute) {
+  if (isLoginRoute || pathname === '/') {
     if (role === 'admin') {
       return NextResponse.redirect(new URL('/admin', request.url));
     }
@@ -42,15 +43,16 @@ export function middleware(request) {
     return NextResponse.next();
   }
 
-  // Redirect root to /home if not explicitly going to login
-  if (pathname === '/') {
-    return NextResponse.redirect(new URL('/home', request.url));
+  // If not logged in and trying to access any other route, redirect to root
+  if (!role) {
+    return NextResponse.redirect(new URL('/', request.url));
   }
 
-  // Fallback for random routes
+  // Fallback for random routes for logged in users
   const isKnownRoute = validRoutes.some(route => pathname === route || pathname.startsWith(route + '/'));
   if (!isKnownRoute) {
-    return NextResponse.redirect(new URL('/home', request.url));
+    const dashboard = role === 'admin' ? '/admin' : '/home';
+    return NextResponse.redirect(new URL(dashboard, request.url));
   }
 
   return NextResponse.next();
