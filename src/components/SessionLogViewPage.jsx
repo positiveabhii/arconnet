@@ -111,7 +111,7 @@ export default function SessionLogViewPage({ onBack }) {
               onTimeUpdate={handleTimeUpdate}
               onLoadedMetadata={handleLoadedMetadata}
             >
-              <source src="/1789648227648149.mp4" type="video/mp4" />
+              <source src="https://firebasestorage.googleapis.com/v0/b/glassy-automata-461711-i5.firebasestorage.app/o/1789648227648149.mp4?alt=media&token=19b6d6f2-5519-41b3-8e8c-a744d77e9fb0" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             
