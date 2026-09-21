@@ -70,18 +70,27 @@ export default function SessionLogViewPage({ onBack }) {
   return (
     <div className="session-view-page">
       <header className="monitoring-header">
-        <a className="monitoring-brand" onClick={onBack} aria-label="Back" style={{ cursor: 'pointer' }}>
+        <a
+          className="monitoring-brand"
+          onClick={onBack}
+          aria-label="Back"
+          style={{ cursor: "pointer" }}
+        >
           <img src={logo} alt="Logo" />
         </a>
         <h1>Session Monitoring</h1>
         <div className="monitoring-header-actions">
-          <span className="monitoring-timezone">◷ &nbsp;Preferred Timezone : IST</span>
+          <span className="monitoring-timezone">
+            ◷ &nbsp;Preferred Timezone : IST
+          </span>
           <div className="monitoring-avatar">AD</div>
         </div>
       </header>
 
       <div className="session-view-container">
-        <div className={`session-view-main ${sidebarExpanded ? 'sidebar-open' : ''}`}>
+        <div
+          className={`session-view-main ${sidebarExpanded ? "sidebar-open" : ""}`}
+        >
           <div className="session-view-header">
             <div className="session-view-title">
               <img src="/default.svg" alt="" width="24" />
@@ -89,7 +98,9 @@ export default function SessionLogViewPage({ onBack }) {
             </div>
           </div>
 
-          <div className={`session-info-grid ${!sidebarExpanded ? 'single-row' : ''}`}>
+          <div
+            className={`session-info-grid ${!sidebarExpanded ? "single-row" : ""}`}
+          >
             {sessionInfo.map((item, idx) => (
               <div key={idx} className="session-info-card">
                 <img src={item.icon} alt="" className="info-card-icon" />
@@ -102,48 +113,67 @@ export default function SessionLogViewPage({ onBack }) {
           </div>
 
           <div className="video-player-wrapper">
-            <video 
+            <video
               ref={videoRef}
               className="session-video"
               onClick={togglePlay}
+              preload="metadata"
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
               onTimeUpdate={handleTimeUpdate}
               onLoadedMetadata={handleLoadedMetadata}
             >
-              <source src="https://firebasestorage.googleapis.com/v0/b/glassy-automata-461711-i5.firebasestorage.app/o/1789648227648149.mp4?alt=media&token=19b6d6f2-5519-41b3-8e8c-a744d77e9fb0" type="video/mp4" />
+              <source
+                src="https://firebasestorage.googleapis.com/v0/b/glassy-automata-461711-i5.firebasestorage.app/o/1789648227648149-web-hq.mp4?alt=media&token=a517c9d2-34a9-4d8a-8aca-549e4d07bb5d"
+                type="video/mp4"
+              />
               Your browser does not support the video tag.
             </video>
-            
+
             <div className="custom-player-controls">
-              <button className="control-btn seek-btn" onClick={() => skip(-10)}>
+              <button
+                className="control-btn seek-btn"
+                onClick={() => skip(-10)}
+              >
                 <RotateCcw size={20} />
                 <span className="seek-val">10</span>
               </button>
-              
-              <button className="control-btn play-pause-btn" onClick={togglePlay}>
-                {isPlaying ? <Pause size={22} fill="currentColor" /> : <Play size={22} fill="currentColor" />}
+
+              <button
+                className="control-btn play-pause-btn"
+                onClick={togglePlay}
+              >
+                {isPlaying ? (
+                  <Pause size={22} fill="currentColor" />
+                ) : (
+                  <Play size={22} fill="currentColor" />
+                )}
               </button>
-              
+
               <button className="control-btn seek-btn" onClick={() => skip(10)}>
                 <RotateCw size={20} />
                 <span className="seek-val">10</span>
               </button>
-              
-              <div className="player-time">{formatTime(currentTime)} / {formatTime(duration)}</div>
-              
+
+              <div className="player-time">
+                {formatTime(currentTime)} / {formatTime(duration)}
+              </div>
+
               <div className="player-progress-container" onClick={handleSeek}>
                 <div className="player-progress-bg" ref={progressRef}>
-                  <div 
-                    className="player-progress-filled" 
+                  <div
+                    className="player-progress-filled"
                     style={{ width: `${(currentTime / duration) * 100}%` }}
                   >
                     <div className="player-progress-handle" />
                   </div>
                 </div>
               </div>
-              
-              <button className="control-btn full-screen-btn" onClick={toggleFullScreen}>
+
+              <button
+                className="control-btn full-screen-btn"
+                onClick={toggleFullScreen}
+              >
                 <Maximize size={18} />
               </button>
             </div>
@@ -176,7 +206,11 @@ export default function SessionLogViewPage({ onBack }) {
 
         {sidebarExpanded && (
           <aside className="session-view-sidebar">
-            <button className="sidebar-toggle-btn" onClick={() => setSidebarExpanded(false)} title="Collapse sidebar">
+            <button
+              className="sidebar-toggle-btn"
+              onClick={() => setSidebarExpanded(false)}
+              title="Collapse sidebar"
+            >
               <ChevronRight size={18} />
             </button>
             <div className="sidebar-content">
@@ -189,14 +223,19 @@ export default function SessionLogViewPage({ onBack }) {
         )}
 
         {!sidebarExpanded && (
-          <button className="sidebar-toggle-btn collapsed" onClick={() => setSidebarExpanded(true)} title="Expand sidebar">
+          <button
+            className="sidebar-toggle-btn collapsed"
+            onClick={() => setSidebarExpanded(true)}
+            title="Expand sidebar"
+          >
             <ChevronLeft size={18} />
           </button>
         )}
       </div>
 
       <footer className="monitoring-footer">
-        Copyright © 2026 <b>|</b> <strong>▲ arcon</strong> <b>|</b> V10.11.005_HF1 <b>|</b> Session Monitoring <b>|</b> All Rights Reserved.
+        Copyright © 2026 <b>|</b> <strong>▲ arcon</strong> <b>|</b>{" "}
+        V10.11.005_HF1 <b>|</b> Session Monitoring <b>|</b> All Rights Reserved.
       </footer>
     </div>
   );
