@@ -31,10 +31,10 @@ export default function TopHeader({ activeOverlay, setActiveOverlay, activePage 
         <div className="search-dropdown-container">
           {/* Category Dropdown Trigger */}
           <div
-            className={`category-select ${isDropdownOpen ? 'active' : ''}`}
+            className={`category-select ${isDropdownOpen ? "active" : ""}`}
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
-            <span>{activePage === 'windows' ? 'Windows' : 'All'}</span>
+            <span>{activePage === "windows" ? "Windows" : "All"}</span>
             <ChevronDown className="chevron-icon" size={14} />
 
             {/* Category Dropdown Menu */}
@@ -56,22 +56,24 @@ export default function TopHeader({ activeOverlay, setActiveOverlay, activePage 
                 <div className="dropdown-menu-list">
                   <div className="dropdown-menu-group-title">All Section</div>
                   <a
-                    className={`dropdown-menu-item ${activePage === 'all' ? 'active' : ''}`}
-                    href={isAdmin ? '/admin' : '/home'}
+                    className={`dropdown-menu-item ${activePage === "all" ? "active" : ""}`}
+                    href={isAdmin ? "/admin" : "/home"}
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     All
                   </a>
-                  <div className="dropdown-menu-group-title">Operating System</div>
+                  <div className="dropdown-menu-group-title">
+                    Operating System
+                  </div>
                   <a
-                    className={`dropdown-menu-item ${activePage === 'windows' ? 'active' : ''}`}
+                    className={`dropdown-menu-item ${activePage === "windows" ? "active" : ""}`}
                     href="/windows"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Windows
                   </a>
                   <a
-                    className={`dropdown-menu-item ${activePage === 'linux' ? 'active' : ''}`}
+                    className={`dropdown-menu-item ${activePage === "linux" ? "active" : ""}`}
                     href="/linux-passwordbased"
                     onClick={() => setIsDropdownOpen(false)}
                   >
@@ -103,7 +105,7 @@ export default function TopHeader({ activeOverlay, setActiveOverlay, activePage 
                   size={14}
                   className="search-right-icon search-clear"
                   onClick={() => {
-                    setSearchValue('');
+                    setSearchValue("");
                     setIsFilterOpen(false);
                     setIsSearchActive(false);
                   }}
@@ -111,7 +113,7 @@ export default function TopHeader({ activeOverlay, setActiveOverlay, activePage 
                 />
                 <SlidersHorizontal
                   size={14}
-                  className={`search-right-icon ${isFilterOpen ? 'active' : ''}`}
+                  className={`search-right-icon ${isFilterOpen ? "active" : ""}`}
                   onClick={() => setIsFilterOpen(!isFilterOpen)}
                   title="Toggle Advanced Filter"
                 />
@@ -200,7 +202,7 @@ export default function TopHeader({ activeOverlay, setActiveOverlay, activePage 
 
         <div className="location-indicator">
           <MapPin size={14} className="header-icon-muted" />
-          <span className="location-name">SHARJAH</span>
+          <span className="location-name">Test Lab Demo</span>
           <ChevronDown size={14} className="chevron-icon" />
         </div>
 
@@ -210,16 +212,16 @@ export default function TopHeader({ activeOverlay, setActiveOverlay, activePage 
           </button>
 
           <button
-            className={`icon-btn ${activeOverlay === 'notifications' ? 'active' : ''}`}
-            onClick={() => toggleOverlay('notifications')}
+            className={`icon-btn ${activeOverlay === "notifications" ? "active" : ""}`}
+            onClick={() => toggleOverlay("notifications")}
             title="Notifications"
           >
             <Bell size={16} />
           </button>
 
           <button
-            className={`icon-btn ${activeOverlay === 'launcher' ? 'active' : ''}`}
-            onClick={() => toggleOverlay('launcher')}
+            className={`icon-btn ${activeOverlay === "launcher" ? "active" : ""}`}
+            onClick={() => toggleOverlay("launcher")}
             title="Application Launcher"
           >
             <Grid size={16} />
@@ -227,10 +229,10 @@ export default function TopHeader({ activeOverlay, setActiveOverlay, activePage 
 
           <div
             className="user-avatar"
-            onClick={() => toggleOverlay('profile')}
+            onClick={() => toggleOverlay("profile")}
             title="User Profile"
           >
-            {isAdmin ? 'AD' : 'RO'}
+            {isAdmin ? "AD" : "RO"}
           </div>
         </div>
       </div>

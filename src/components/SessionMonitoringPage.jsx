@@ -57,20 +57,20 @@ export default function SessionMonitoringPage({ initialView = 'session' }) {
 
 function ViewDetailsDrawer({ session, onClose }) {
   const details = [
-    { label: 'Asset IP', value: session.ip },
-    { label: 'Digital Identity Username', value: session.identity },
-    { label: 'Asset Host Name', value: session.ip },
-    { label: 'Session Taken By', value: 'ROHITH' },
-    { label: 'Asset Domain Name', value: session.ip },
-    { label: 'Session ID', value: '2525' },
-    { label: 'LOB', value: 'SHARJAH' },
-    { label: 'Asset Group', value: 'JNGroup Servers' },
-    { label: 'Connection Type', value: 'AGWA' },
-    { label: 'Digital Identity Category', value: 'Non Personal' },
-    { label: 'Reference Number', value: 'NA' },
-    { label: 'Other Details', value: 'NA' },
-    { label: 'User Machine Details', value: '12.200.1.101[Chrome][...' },
-    { label: 'Connected Monitors', value: '1' }
+    { label: "Asset IP", value: session.ip },
+    { label: "Digital Identity Username", value: session.identity },
+    { label: "Asset Host Name", value: session.ip },
+    { label: "Session Taken By", value: "ROHITH" },
+    { label: "Asset Domain Name", value: session.ip },
+    { label: "Session ID", value: "2525" },
+    { label: "LOB", value: "Test Lab Demo" },
+    { label: "Asset Group", value: "JNGroup Servers" },
+    { label: "Connection Type", value: "AGWA" },
+    { label: "Digital Identity Category", value: "Non Personal" },
+    { label: "Reference Number", value: "NA" },
+    { label: "Other Details", value: "NA" },
+    { label: "User Machine Details", value: "12.200.1.101[Chrome][..." },
+    { label: "Connected Monitors", value: "1" },
   ];
 
   return (

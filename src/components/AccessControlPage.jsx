@@ -10,7 +10,7 @@ function AccessHeader() {
     <header className="access-header">
       <a className="access-brand" href="/admin" aria-label="Return to Workspace"><img src={logo} alt="The United Bank logo" /></a>
       <h1>Access Control</h1>
-      <div className="access-header-actions"><span>◷ &nbsp;Preferred Timezone : IST</span><MapPin size={14} /><span>SHARJAH</span><ChevronDown size={14} /><Grid3X3 size={18} /><a className="access-avatar" href="/admin">AD</a></div>
+      <div className="access-header-actions"><span>◷ &nbsp;Preferred Timezone : IST</span><MapPin size={14} /><span>Test Lab Demo</span><ChevronDown size={14} /><Grid3X3 size={18} /><a className="access-avatar" href="/admin">AD</a></div>
     </header>
   );
 }
